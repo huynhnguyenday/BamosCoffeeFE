@@ -102,7 +102,7 @@ const Menu = () => {
   );
 
   return (
-    <div className="p-5 text-center">
+    <div className="p-2 text-center lg:p-5">
       <h1 className="mb-4 text-4xl font-bold">
         Thực đơn Bamos<span className="text-[#C63402]">Coffee</span>
       </h1>
@@ -160,7 +160,7 @@ const Menu = () => {
           <div className="flex flex-wrap gap-0">
             {currentProducts.map((item) => (
               <div
-                className="group relative mt-8 flex h-[340px] w-[190px] flex-col justify-between border-l border-r border-gray-300 bg-white p-3 text-center transition-shadow ease-linear lg:h-[340px] lg:w-[250px]"
+                className="group relative mt-8 flex h-[340px] w-[170px] flex-col justify-between border-l border-r border-gray-300 bg-white p-3 text-center transition-shadow ease-linear lg:h-[340px] lg:w-[250px]"
                 key={item._id}
               >
                 <div>
@@ -177,7 +177,7 @@ const Menu = () => {
                   <h6 className="text-sm font-bold text-[#333]">
                     <Link
                       to={`/detailfood/${item._id}`}
-                      className="font-josefin text-xl font-bold text-[#00561e]"
+                      className="line-clamp-1 font-josefin text-xl font-bold text-[#00561e]"
                     >
                       {item.name.substring(0, 20)}
                       {item.name.length > 20 && "..."}
@@ -185,10 +185,10 @@ const Menu = () => {
                   </h6>
 
                   <div className="mb-2 font-josefin text-lg font-bold text-[#925802]">
-                    <span>{item.sell_price.toLocaleString()} đ</span>
+                    <span>{item.sell_price.toLocaleString()}đ</span>
                     {item.price !== item.sell_price && (
                       <span className="ml-2 text-base text-gray-500 line-through">
-                        {item.price.toLocaleString()} đ
+                        {item.price.toLocaleString()}đ
                       </span>
                     )}
                   </div>

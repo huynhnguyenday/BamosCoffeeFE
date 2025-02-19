@@ -62,7 +62,7 @@ const ProductSlider = () => {
 
   return (
     <div
-      className="product-slider relative mx-auto mb-20 max-w-screen-xl overflow-visible bg-white px-5 py-10"
+      className="product-slider relative mx-auto mb-20 max-w-screen-xl overflow-visible bg-white px-2 py-10 lg:px-5"
       ref={ref}
       onMouseEnter={() => setShowArrows(true)}
       onMouseLeave={() => setShowArrows(false)}
@@ -86,7 +86,7 @@ const ProductSlider = () => {
             nextEl: ".swiper-button-next",
           }}
           breakpoints={{
-            430: { slidesPerView: 2 },
+            375: { slidesPerView: 2 },
             768: { slidesPerView: 3 },
             1024: { slidesPerView: 5 },
           }}
@@ -123,7 +123,7 @@ const ProductSlider = () => {
                   HOT
                 </div>
                 <div className="product-info mb-10 mt-2">
-                  <h6 className="product-name font-josefin text-xl font-bold text-[#00561e]">
+                  <h6 className="product-name font-josefin text-xl line-clamp-1 font-bold text-[#00561e]">
                     <Link to={`/detailfood/${product._id}`}>
                       {product.name.split(" ").slice(0, 4).join(" ")}
                       {/* Giới hạn 20 từ */}

@@ -25,7 +25,7 @@ const Footer = () => {
       className="font-josefin-sans bg-white text-black"
       style={{ height: "250px" }}
     >
-      <div className="mx-auto w-full px-6 pt-8">
+      <div className="mx-auto w-full px-2 pt-8 lg:px-6">
         <div className="mx-auto max-w-full lg:w-[1200px]" ref={ref}>
           <div className="flex flex-wrap items-start justify-between">
             {/* Left Section */}
@@ -58,7 +58,7 @@ const Footer = () => {
               <h2 className="underline-title mb-4 text-3xl font-bold text-[#633c02]">
                 Về chúng tôi
               </h2>
-              <div className="mx-auto my-4  h-1 w-12 bg-[#633c02]"></div>
+              <div className="mx-auto my-4 h-1 w-12 bg-[#633c02]"></div>
               <ul className="fw-semibold space-y-2 font-josefin text-xl">
                 <motion.li variants={itemVariants} custom={2}>
                   <a
@@ -95,9 +95,7 @@ const Footer = () => {
               custom={5}
               variants={itemVariants}
             >
-              <h2
-                className="mb-4 text-3xl font-bold text-[#633c02] pr-24 sm:pr-24"
-              >
+              <h2 className="mb-4 pr-32 text-3xl font-bold text-[#633c02] lg:pr-24">
                 Liên hệ
               </h2>
               <div className="mb-4 flex justify-center space-x-4 sm:justify-end">
@@ -128,7 +126,7 @@ const Footer = () => {
                 ))}
               </div>
               <motion.p
-                className="pb-6 pt-14 font-josefin text-base font-bold text-black"
+                className="pb-2 pt-14 font-josefin text-base font-bold text-black lg:pb-6"
                 variants={itemVariants}
                 custom={10}
               >
