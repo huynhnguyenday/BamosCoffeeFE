@@ -22,7 +22,7 @@ const ManageOrder = () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          "https://bamosbe-m9on.onrender.com/api/orders",
+          "https://bamoscoffeehh.up.railway.app/api/orders",
         );
         setOrders(response.data.data); // Cập nhật danh sách đơn hàng từ API
         setError(null); // Xóa lỗi nếu có
@@ -73,7 +73,7 @@ const ManageOrder = () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          "https://bamosbe-m9on.onrender.com/api/orders",
+          "https://bamoscoffeehh.up.railway.app/api/orders",
         );
         setOrders(response.data.data);
         setError(null);
