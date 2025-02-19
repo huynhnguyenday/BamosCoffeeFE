@@ -13,7 +13,7 @@ const ModalForgotPassword = () => {
     setIsLoading(true); // Bắt đầu loading
     try {
       const response = await fetch(
-        "https://bamoscoffee.up.railway.app/api/auth/forgot-password",
+        "https://bamosbe-m9on.onrender.com/api/auth/forgot-password",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -23,16 +23,16 @@ const ModalForgotPassword = () => {
 
       const data = await response.json();
       if (data.success) {
-        localStorage.setItem("email", email); 
-        toast.success(data.message); 
-        navigate("/authenticationcode"); 
+        localStorage.setItem("email", email);
+        toast.success(data.message);
+        navigate("/authenticationcode");
       } else {
-        toast.error(data.message); 
+        toast.error(data.message);
       }
     } catch (error) {
       toast.error("Có lỗi xảy ra. Vui lòng thử lại sau.");
     } finally {
-      setIsLoading(false); 
+      setIsLoading(false);
     }
   };
 
@@ -67,7 +67,7 @@ const ModalForgotPassword = () => {
             className="mb-2 mt-3 w-full rounded-lg bg-black py-3 font-josefin text-xl text-white transition-transform duration-200 hover:scale-90"
             disabled={isLoading} // Vô hiệu hóa nút khi đang loading
           >
-            {isLoading ? <LoadingWhite/> : "Nhận mã xác thực"}{" "}
+            {isLoading ? <LoadingWhite /> : "Nhận mã xác thực"}{" "}
             {/* Hiển thị Loading hoặc text */}
           </button>
         </form>

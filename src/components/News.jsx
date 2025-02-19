@@ -23,7 +23,7 @@ const News = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          "https://bamoscoffee.up.railway.app/api/blogs",
+          "https://bamosbe-m9on.onrender.com/api/blogs",
         ); // API lấy blogs
         setNewsData(response.data.data); // Lưu dữ liệu vào state
       } catch (error) {
@@ -89,16 +89,15 @@ const News = () => {
 
                 {/* Phần dưới: Tiêu đề và đoạn trích */}
                 <div className="p-2 text-center">
-                  <h2 className="mb-2 text-lg h-14 font-bold text-[#633402]">
+                  <h2 className="mb-2 h-14 text-lg font-bold text-[#633402]">
                     {blog.title.length > 50
                       ? `${blog.title.slice(0, 50)}...`
                       : blog.title}
                   </h2>
                   <p
-                    className="pb-2 text-sm line-clamp-1 w-64 h-5 text-[#555]"
+                    className="line-clamp-1 h-5 w-64 pb-2 text-sm text-[#555]"
                     dangerouslySetInnerHTML={{
-                      __html:
-                        blog.content,
+                      __html: blog.content,
                     }}
                   />
                 </div>
@@ -107,7 +106,7 @@ const News = () => {
           </div>
 
           {/* Hiển thị các nút phân trang */}
-          <div className="mt-2 flex justify-center mb-12">
+          <div className="mb-12 mt-2 flex justify-center">
             {Array.from({ length: totalPages }).map((_, index) => (
               <button
                 key={index}

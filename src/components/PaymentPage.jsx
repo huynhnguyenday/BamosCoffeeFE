@@ -29,7 +29,7 @@ const PaymentPage = () => {
 
         // Gửi yêu cầu API để lấy thông tin tài khoản
         const response = await axios.get(
-          `https://bamoscoffee.up.railway.app/api/accounts/${accountId}`,
+          `https://bamosbe-m9on.onrender.com/api/accounts/${accountId}`,
         );
 
         setAccountData(response.data.data); // Lưu dữ liệu tài khoản vào state
@@ -46,7 +46,7 @@ const PaymentPage = () => {
     const fetchCoupons = async () => {
       try {
         const response = await axios.get(
-          "https://bamoscoffee.up.railway.app/api/coupons",
+          "https://bamosbe-m9on.onrender.com/api/coupons",
         ); // Thay URL bằng API của bạn
         setValidCoupons(response.data.data); // Cập nhật state từ API
       } catch (error) {
@@ -276,7 +276,7 @@ const PaymentPage = () => {
 
     try {
       const response = await axios.post(
-        "https://bamoscoffee.up.railway.app/api/orders",
+        "https://bamosbe-m9on.onrender.com/api/orders",
         orderData,
         {
           withCredentials: true, // Cho phép gửi cookie

@@ -28,7 +28,7 @@ const ManageBlog = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          "https://bamoscoffee.up.railway.app/api/blogs",
+          "https://bamosbe-m9on.onrender.com/api/blogs",
         );
         setBlogList(response.data.data);
       } catch (error) {
@@ -85,7 +85,7 @@ const ManageBlog = () => {
       setBlogList(updatedBlogs);
 
       // Gửi yêu cầu API để cập nhật trạng thái trên server
-      await axios.put(`https://bamoscoffee.up.railway.app/api/blogs/${id}`, {
+      await axios.put(`https://bamosbe-m9on.onrender.com/api/blogs/${id}`, {
         displayHot: updatedBlogs.find((blog) => blog._id === id).displayHot,
       });
     } catch (error) {
@@ -113,7 +113,7 @@ const ManageBlog = () => {
       setBlogList(updatedBlogs);
 
       // Gửi yêu cầu API để cập nhật trạng thái trên server
-      await axios.put(`https://bamoscoffee.up.railway.app/api/blogs/${id}`, {
+      await axios.put(`https://bamosbe-m9on.onrender.com/api/blogs/${id}`, {
         displayBanner: updatedBlogs.find((blog) => blog._id === id)
           .displayBanner,
       });

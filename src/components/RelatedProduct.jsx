@@ -33,7 +33,7 @@ const RelatedProduct = ({ productId }) => {
       try {
         setLoading(true);
         const response = await axios.get(
-          `https://bamoscoffee.up.railway.app/api/products/relatedProducts/${productId}`,
+          `https://bamosbe-m9on.onrender.com/api/products/relatedProducts/${productId}`,
         );
         if (response.data.success) {
           setProducts(response.data.data);

@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
-import Loading from "./Loading"
-import { Link } from "react-router-dom"; 
+import Loading from "./Loading";
+import { Link } from "react-router-dom";
 
 const SearchItem = () => {
   const [searchTerm, setSearchTerm] = useState(""); // State for search term
@@ -29,7 +29,7 @@ const SearchItem = () => {
 
       try {
         const response = await axios.get(
-          `https://bamoscoffee.up.railway.app/api/products?searchTerm=${searchTerm}`,
+          `https://bamosbe-m9on.onrender.com/api/products?searchTerm=${searchTerm}`,
         );
         setProducts(response.data.data); // Update products state
       } catch (error) {
@@ -105,7 +105,7 @@ const SearchItem = () => {
                         {/* Product Info Section */}
                         <div className="flex-1">
                           {/* Product Name */}
-                          <div className="h-12 flex items-center font-josefin text-2xl font-bold text-[#00561e]">
+                          <div className="flex h-12 items-center font-josefin text-2xl font-bold text-[#00561e]">
                             {product.name}
                           </div>
 

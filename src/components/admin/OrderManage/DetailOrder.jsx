@@ -44,7 +44,7 @@ const DetailOrder = ({ order, onClose, onOrderUpdated }) => {
     try {
       const { name, number, address, note } = customerInfo;
       const response = await axios.put(
-        `https://bamoscoffee.up.railway.app/api/orders/${order._id}`,
+        `https://bamosbe-m9on.onrender.com/api/orders/${order._id}`,
         {
           name,
           number,

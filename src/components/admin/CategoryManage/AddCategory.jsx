@@ -23,7 +23,7 @@ const AddCategory = ({ onAddCategory, onClose, onFetchCategories }) => {
 
     try {
       const response = await axios.post(
-        "https://bamoscoffee.up.railway.app/api/categories",
+        "https://bamosbe-m9on.onrender.com/api/categories",
         newCategory,
       );
 

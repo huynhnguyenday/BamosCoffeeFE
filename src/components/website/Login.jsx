@@ -3,9 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie"; // Import thư viện cookies
 import { decodeJWT } from "../utils/jwtUtils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faUser,
-} from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { toast } from "react-toastify";
 
@@ -41,7 +39,7 @@ const Login = () => {
     try {
       // Gửi yêu cầu logout tới backend (xóa JWT cookie ở server)
       const response = await axios.post(
-        "https://bamoscoffee.up.railway.app/api/auth/logout",
+        "https://bamosbe-m9on.onrender.com/api/auth/logout",
         {},
         { withCredentials: true },
       );
@@ -91,7 +89,7 @@ const Login = () => {
               Thông tin tài khoản
             </button>
             <button
-              className="w-full px-4 py-3 font-josefin font-bold text-center text-sm hover:rounded-b-lg hover:bg-black hover:text-white"
+              className="w-full px-4 py-3 text-center font-josefin text-sm font-bold hover:rounded-b-lg hover:bg-black hover:text-white"
               onClick={handleLogoutClick}
             >
               Đăng xuất

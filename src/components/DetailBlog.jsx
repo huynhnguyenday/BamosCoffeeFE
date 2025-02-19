@@ -19,7 +19,7 @@ const DetailBlog = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          `https://bamoscoffee.up.railway.app/api/blogs/${id}`,
+          `https://bamosbe-m9on.onrender.com/api/blogs/${id}`,
         ); // Gọi API lấy bài viết
 
         if (response.data.success) {
@@ -27,7 +27,7 @@ const DetailBlog = () => {
 
           // Fetch danh sách bài viết liên quan (trừ bài viết hiện tại)
           const relatedResponse = await axios.get(
-            "https://bamoscoffee.up.railway.app/api/blogs",
+            "https://bamosbe-m9on.onrender.com/api/blogs",
           );
           if (relatedResponse.data.success) {
             setRelatedBlogs(
@@ -51,7 +51,11 @@ const DetailBlog = () => {
   }, [id, navigate]);
 
   if (loading) {
-    return <div className="loading min-h-screen flex  w-full"><Loading/></div>;
+    return (
+      <div className="loading flex min-h-screen w-full">
+        <Loading />
+      </div>
+    );
   }
 
   if (!blog) {

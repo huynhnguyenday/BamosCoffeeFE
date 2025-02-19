@@ -23,7 +23,7 @@ const BannerSwiper = () => {
     const fetchBannerBlogs = async () => {
       try {
         const response = await axios.get(
-          "https://bamoscoffee.up.railway.app/api/blogs/bannerBlogs",
+          "https://bamosbe-m9on.onrender.com/api/blogs/bannerBlogs",
         );
         setBlogs(response.data.data); // Lưu dữ liệu vào state
       } catch (error) {
@@ -82,7 +82,7 @@ const BannerSwiper = () => {
                 <img
                   src={blog.image}
                   alt={blog.title}
-                  className="h-full lg:h-[460px] w-full object-cover lg:object-contain"
+                  className="h-full w-full object-cover lg:h-[460px] lg:object-contain"
                 />
               </div>
             </SwiperSlide>
