@@ -22,7 +22,7 @@ const ManageReview = () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          "https://bamoscoffeehh.up.railway.app/api/reviews",
+          "https://bamosbe-m9on.onrender.com/api/reviews",
         );
         console.log("Reviews data:", response.data.data);
         setReviews(response.data.data); // Gán dữ liệu từ API
@@ -49,7 +49,7 @@ const ManageReview = () => {
 
       // Gửi yêu cầu cập nhật trạng thái đến API
       await axios.put(
-        `https://bamoscoffeehh.up.railway.app/api/reviews/${reviewId}`,
+        `https://bamosbe-m9on.onrender.com/api/reviews/${reviewId}`,
         {
           activeReview: updatedReviews.find((r) => r._id === reviewId)
             .activeReview,

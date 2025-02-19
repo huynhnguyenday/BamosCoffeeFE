@@ -13,7 +13,7 @@ const ModalForgotPassword = () => {
     setIsLoading(true); // Bắt đầu loading
     try {
       const response = await fetch(
-        "https://bamoscoffeehh.up.railway.app/api/auth/forgot-password",
+        "https://bamosbe-m9on.onrender.com/api/auth/forgot-password",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

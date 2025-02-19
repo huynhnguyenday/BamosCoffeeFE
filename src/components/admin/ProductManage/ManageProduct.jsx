@@ -29,7 +29,7 @@ const ManageProduct = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        "https://bamoscoffeehh.up.railway.app/api/products",
+        "https://bamosbe-m9on.onrender.com/api/products",
       ); // Đường dẫn API
       setProducts(response.data.data);
     } catch (error) {
@@ -42,7 +42,7 @@ const ManageProduct = () => {
   const fetchCategories = async () => {
     try {
       const response = await axios.get(
-        "https://bamoscoffeehh.up.railway.app/api/categories",
+        "https://bamosbe-m9on.onrender.com/api/categories",
       );
       setCategories(response.data.data);
     } catch (error) {
@@ -64,7 +64,7 @@ const ManageProduct = () => {
   const handleCreateProduct = async (product) => {
     try {
       const response = await axios.post(
-        "https://bamoscoffeehh.up.railway.app/api/products",
+        "https://bamosbe-m9on.onrender.com/api/products",
         product,
       );
       setProducts([...products, response.data.data]);
@@ -97,12 +97,9 @@ const ManageProduct = () => {
       setProducts(updatedProducts);
 
       // Gửi yêu cầu cập nhật API
-      await axios.put(
-        `https://bamoscoffeehh.up.railway.app/api/products/${id}`,
-        {
-          displayType: updatedProducts.find((p) => p._id === id).displayType,
-        },
-      );
+      await axios.put(`https://bamosbe-m9on.onrender.com/api/products/${id}`, {
+        displayType: updatedProducts.find((p) => p._id === id).displayType,
+      });
     } catch (error) {
       console.error("Error updating display type:", error);
     }
@@ -119,12 +116,9 @@ const ManageProduct = () => {
       setProducts(updatedProducts);
 
       // Gửi yêu cầu cập nhật API
-      await axios.put(
-        `https://bamoscoffeehh.up.railway.app/api/products/${id}`,
-        {
-          displayHot: updatedProducts.find((p) => p._id === id).displayHot,
-        },
-      );
+      await axios.put(`https://bamosbe-m9on.onrender.com/api/products/${id}`, {
+        displayHot: updatedProducts.find((p) => p._id === id).displayHot,
+      });
     } catch (error) {
       console.error("Error updating display hot:", error);
     }

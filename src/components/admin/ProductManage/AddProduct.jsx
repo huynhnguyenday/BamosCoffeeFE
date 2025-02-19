@@ -23,7 +23,7 @@ const AddProduct = ({ showModal, setShowModal }) => {
     const fetchCategories = async () => {
       try {
         const response = await fetch(
-          "https://bamoscoffeehh.up.railway.app/api/categories",
+          "https://bamosbe-m9on.onrender.com/api/categories",
         );
         const data = await response.json();
 
@@ -79,7 +79,7 @@ const AddProduct = ({ showModal, setShowModal }) => {
 
     try {
       const response = await axios.post(
-        "https://bamoscoffeehh.up.railway.app/api/products",
+        "https://bamosbe-m9on.onrender.com/api/products",
         formData,
         {
           headers: {

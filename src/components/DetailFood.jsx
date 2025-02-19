@@ -21,7 +21,7 @@ const DetailFood = () => {
       try {
         setLoading(true); // Bật trạng thái loading trước khi gọi API
         const response = await axios.get(
-          `https://bamoscoffeehh.up.railway.app/api/mainPages/${id}`,
+          `https://bamosbe-m9on.onrender.com/api/mainPages/${id}`,
         );
         if (response.data.success) {
           const product = response.data.data;
@@ -43,7 +43,7 @@ const DetailFood = () => {
     const fetchCategories = async () => {
       try {
         const response = await axios.get(
-          "https://bamoscoffeehh.up.railway.app/api/mainPages/activeCategories",
+          "https://bamosbe-m9on.onrender.com/api/mainPages/activeCategories",
         );
         if (response.data.success) {
           setCategories(response.data.data);
