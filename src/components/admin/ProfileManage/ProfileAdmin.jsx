@@ -41,7 +41,7 @@ const ProfileAdmin = () => {
       }
 
       const response = await axios.get(
-        `https://bamosbe-m9on.onrender.com/api/accounts/${userId}`,
+        `https://bamoscoffeehh.up.railway.app/api/accounts/${userId}`,
       );
 
       if (response.data.success) {
@@ -78,7 +78,7 @@ const ProfileAdmin = () => {
 
     try {
       const response = await axios.post(
-        "https://bamosbe-m9on.onrender.com/api/auth/send-otp",
+        "https://bamoscoffeehh.up.railway.app/api/auth/send-otp",
         { email },
       );
 

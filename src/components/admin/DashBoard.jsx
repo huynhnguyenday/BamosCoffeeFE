@@ -90,7 +90,7 @@ const DashBoard = () => {
     try {
       // Gửi yêu cầu logout tới backend (xóa JWT cookie ở server)
       const response = await axios.post(
-        "https://bamosbe-m9on.onrender.com/api/auth/logout",
+        "https://bamoscoffeehh.up.railway.app/api/auth/logout",
         {},
         { withCredentials: true },
       );

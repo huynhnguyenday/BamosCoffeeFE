@@ -29,7 +29,7 @@ const SearchItem = () => {
 
       try {
         const response = await axios.get(
-          `https://bamosbe-m9on.onrender.com/api/products?searchTerm=${searchTerm}`,
+          `https://bamoscoffeehh.up.railway.app/api/products?searchTerm=${searchTerm}`,
         );
         setProducts(response.data.data); // Update products state
       } catch (error) {

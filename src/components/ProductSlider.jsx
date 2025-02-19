@@ -34,7 +34,7 @@ const ProductSlider = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          "https://bamosbe-m9on.onrender.com/api/mainPages",
+          "https://bamoscoffeehh.up.railway.app/api/mainPages",
         );
         if (response.data.success) {
           setProducts(response.data.data);
