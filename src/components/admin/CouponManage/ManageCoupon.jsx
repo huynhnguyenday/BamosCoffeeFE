@@ -17,7 +17,9 @@ const ManageCoupon = () => {
   const fetchCoupons = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("http://localhost:5000/api/coupons"); // Thay bằng endpoint API thực tế
+      const response = await axios.get(
+        "https://bamoscoffee.up.railway.app/api/coupons",
+      ); // Thay bằng endpoint API thực tế
       if (response.data && Array.isArray(response.data.data)) {
         setCoupons(response.data.data);
       } else {

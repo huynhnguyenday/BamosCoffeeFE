@@ -29,7 +29,7 @@ const PaymentPage = () => {
 
         // Gửi yêu cầu API để lấy thông tin tài khoản
         const response = await axios.get(
-          `http://localhost:5000/api/accounts/${accountId}`,
+          `https://bamoscoffee.up.railway.app/api/accounts/${accountId}`,
         );
 
         setAccountData(response.data.data); // Lưu dữ liệu tài khoản vào state
@@ -45,7 +45,9 @@ const PaymentPage = () => {
     // Gọi API để lấy danh sách coupon
     const fetchCoupons = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/coupons"); // Thay URL bằng API của bạn
+        const response = await axios.get(
+          "https://bamoscoffee.up.railway.app/api/coupons",
+        ); // Thay URL bằng API của bạn
         setValidCoupons(response.data.data); // Cập nhật state từ API
       } catch (error) {
         console.error("Lỗi khi lấy danh sách coupon:", error);
@@ -75,7 +77,6 @@ const PaymentPage = () => {
       setCouponCode(savedCouponCode); // Tự động điền coupon code
     }
   }, []);
-
 
   useEffect(() => {
     localStorage.setItem("tempCart", JSON.stringify(cartItems));
@@ -121,7 +122,6 @@ const PaymentPage = () => {
       }
     }
   }, [couponCode, validCoupons]);
-
 
   if (!cartItems || cartItems.length === 0) {
     return (
@@ -240,7 +240,6 @@ const PaymentPage = () => {
     }
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -277,7 +276,7 @@ const PaymentPage = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/orders",
+        "https://bamoscoffee.up.railway.app/api/orders",
         orderData,
         {
           withCredentials: true, // Cho phép gửi cookie
@@ -294,7 +293,7 @@ const PaymentPage = () => {
       console.error("Lỗi khi tạo đơn hàng:", error);
       toast.error("Đã có lỗi xảy ra, vui lòng thử lại.");
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
   };
 

@@ -38,7 +38,7 @@ const UpdateBlog = ({ blog, onClose, onBlogUpdated }) => {
 
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/blogs/${blog._id}`,
+        `https://bamoscoffee.up.railway.app/api/blogs/${blog._id}`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -55,22 +55,24 @@ const UpdateBlog = ({ blog, onClose, onBlogUpdated }) => {
     <img
       src={URL.createObjectURL(image)}
       alt="Preview"
-      className="mx-auto w-3/4 h-32 object-cover"
+      className="mx-auto h-32 w-3/4 object-cover"
     />
   ) : (
     blog.image && (
       <img
         src={blog.image}
         alt="Blog"
-        className="mx-auto w-3/4 h-32 object-cover"
+        className="mx-auto h-32 w-3/4 object-cover"
       />
     )
   );
 
   return (
-    <div className="fixed z-20 inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
+    <div className="fixed inset-0 z-20 flex items-center justify-center bg-gray-800 bg-opacity-50">
       <div className="w-full max-w-7xl rounded-lg bg-white p-6 shadow-lg">
-        <h2 className="mb-4 text-center text-4xl font-bold">Chỉnh sửa bài viết</h2>
+        <h2 className="mb-4 text-center text-4xl font-bold">
+          Chỉnh sửa bài viết
+        </h2>
         {error && <p className="mb-4 text-red-500">{error}</p>}
         <form onSubmit={handleSubmit}>
           <div className="mb-6 grid grid-cols-1 gap-6 md:grid-cols-2">

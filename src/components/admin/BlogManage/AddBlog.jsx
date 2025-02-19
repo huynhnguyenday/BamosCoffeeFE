@@ -35,7 +35,7 @@ const AddBlog = ({ onClose, onBlogAdded }) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/blogs",
+        "https://bamoscoffee.up.railway.app/api/blogs",
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -89,7 +89,7 @@ const AddBlog = ({ onClose, onBlogAdded }) => {
                   + Kích thước phù hợp cho Banner là{" "}
                   <span className="font-bold text-red-900">1920px * 576px</span>
                 </span>
-                <span className="mb-2 my-1 text-base">
+                <span className="my-1 mb-2 text-base">
                   + Kích thước phù hợp cho Hot là{" "}
                   <span className="font-bold text-red-900">1280px * 544px</span>
                 </span>

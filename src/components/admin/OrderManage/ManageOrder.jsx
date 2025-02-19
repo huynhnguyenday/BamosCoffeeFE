@@ -21,7 +21,9 @@ const ManageOrder = () => {
     const fetchOrders = async () => {
       setLoading(true);
       try {
-        const response = await axios.get("http://localhost:5000/api/orders");
+        const response = await axios.get(
+          "https://bamoscoffee.up.railway.app/api/orders",
+        );
         setOrders(response.data.data); // Cập nhật danh sách đơn hàng từ API
         setError(null); // Xóa lỗi nếu có
       } catch (err) {
@@ -55,7 +57,6 @@ const ManageOrder = () => {
     return isWithinDateRange && matchesSearchTerm;
   });
 
-
   // Handle showing order details
   const handleShowOrderDetail = (order) => {
     setSelectedOrder(order);
@@ -71,7 +72,9 @@ const ManageOrder = () => {
     const fetchOrders = async () => {
       setLoading(true);
       try {
-        const response = await axios.get("http://localhost:5000/api/orders");
+        const response = await axios.get(
+          "https://bamoscoffee.up.railway.app/api/orders",
+        );
         setOrders(response.data.data);
         setError(null);
       } catch (err) {
@@ -127,7 +130,6 @@ const ManageOrder = () => {
     link.download = "DanhSachDonHang.xlsx";
     link.click();
   };
-
 
   return (
     <div className="flex items-center justify-center bg-gray-50">

@@ -41,7 +41,7 @@ const ProfileAdmin = () => {
       }
 
       const response = await axios.get(
-        `http://localhost:5000/api/accounts/${userId}`,
+        `https://bamoscoffee.up.railway.app/api/accounts/${userId}`,
       );
 
       if (response.data.success) {
@@ -78,7 +78,7 @@ const ProfileAdmin = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/send-otp",
+        "https://bamoscoffee.up.railway.app/api/auth/send-otp",
         { email },
       );
 

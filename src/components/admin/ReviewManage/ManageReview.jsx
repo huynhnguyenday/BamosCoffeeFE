@@ -21,7 +21,9 @@ const ManageReview = () => {
     const fetchReviews = async () => {
       setLoading(true);
       try {
-        const response = await axios.get("http://localhost:5000/api/reviews");
+        const response = await axios.get(
+          "https://bamoscoffee.up.railway.app/api/reviews",
+        );
         console.log("Reviews data:", response.data.data);
         setReviews(response.data.data); // Gán dữ liệu từ API
         setLoading(false);
@@ -46,10 +48,13 @@ const ManageReview = () => {
       setReviews(updatedReviews); // Cập nhật lại state reviews
 
       // Gửi yêu cầu cập nhật trạng thái đến API
-      await axios.put(`http://localhost:5000/api/reviews/${reviewId}`, {
-        activeReview: updatedReviews.find((r) => r._id === reviewId)
-          .activeReview,
-      });
+      await axios.put(
+        `https://bamoscoffee.up.railway.app/api/reviews/${reviewId}`,
+        {
+          activeReview: updatedReviews.find((r) => r._id === reviewId)
+            .activeReview,
+        },
+      );
     } catch (error) {
       console.error("Error updating active review:", error);
     }
@@ -64,7 +69,6 @@ const ManageReview = () => {
         review.email.toLowerCase().includes(searchTerm.toLowerCase())),
   );
 
-
   return (
     <div className="flex items-center justify-center bg-gray-50">
       <div className="h-[600px] w-full max-w-full rounded-lg bg-white p-6 shadow-lg">
@@ -76,7 +80,9 @@ const ManageReview = () => {
             onChange={(e) => setSearchTerm(e.target.value)}
             className="w-2/5 rounded-md border border-gray-300 p-2"
           />
-          <span className="ml-8 font-josefin pt-3 text-2xl font-bold">Lọc:</span>
+          <span className="ml-8 pt-3 font-josefin text-2xl font-bold">
+            Lọc:
+          </span>
           <select
             className="ml-4 rounded-md border border-gray-300 p-2"
             value={selectedRating || ""}

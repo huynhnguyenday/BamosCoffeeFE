@@ -9,9 +9,9 @@ const VerifyOtp = ({ email, onSuccess, onClose }) => {
     e.preventDefault();
     try {
       console.log("Email từ props:", email); // Kiểm tra email đã nhận đúng chưa
-      
+
       const response = await axios.post(
-        "http://localhost:5000/api/auth/verify-otp",
+        "https://bamoscoffee.up.railway.app/api/auth/verify-otp",
         {
           email,
           otp,
@@ -30,7 +30,7 @@ const VerifyOtp = ({ email, onSuccess, onClose }) => {
     }
   };
 
-  return ( 
+  return (
     <div className="fixed inset-0 z-20 flex items-center justify-center bg-black bg-opacity-50">
       <div className="w-full max-w-xl bg-white p-6 shadow-lg">
         <h2 className="text-center font-josefin text-4xl font-bold">
@@ -67,6 +67,5 @@ const VerifyOtp = ({ email, onSuccess, onClose }) => {
     </div>
   );
 };
-
 
 export default VerifyOtp;

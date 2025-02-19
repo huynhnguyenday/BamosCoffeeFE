@@ -20,7 +20,7 @@ const ManageNewsletter = () => {
   const updateNewsletterCheckbox = async (id, checkbox) => {
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/newsletters/${id}`,
+        `https://bamoscoffee.up.railway.app/api/newsletters/${id}`,
         { checkbox },
       );
       if (response.data.success) {
@@ -36,7 +36,7 @@ const ManageNewsletter = () => {
   const fetchValidCoupons = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/coupons/valid-coupons",
+        "https://bamoscoffee.up.railway.app/api/coupons/valid-coupons",
       );
       if (response.data.success) {
         setValidCoupons(response.data.data);
@@ -62,7 +62,7 @@ const ManageNewsletter = () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/newsletters",
+          "https://bamoscoffee.up.railway.app/api/newsletters",
         );
         if (response.data.success) {
           setNewsletters(response.data.data);
@@ -138,7 +138,7 @@ const ManageNewsletter = () => {
     try {
       // Gửi API với danh sách email và coupon đã chọn
       const response = await axios.post(
-        "http://localhost:5000/api/coupons/send-coupon",
+        "https://bamoscoffee.up.railway.app/api/coupons/send-coupon",
         {
           emails: selectedEmails, // Danh sách email
           couponCode: selectedCoupon, // Mã coupon
@@ -153,7 +153,7 @@ const ManageNewsletter = () => {
           .filter((newsletter) => newsletter.checkbox)
           .map((newsletter) =>
             axios.delete(
-              `http://localhost:5000/api/newsletters/${newsletter._id}`,
+              `https://bamoscoffee.up.railway.app/api/newsletters/${newsletter._id}`,
             ),
           );
 
@@ -192,9 +192,12 @@ const ManageNewsletter = () => {
 
         // Gửi API cập nhật trạng thái checkbox về backend
         const promises = newsletters.map((newsletter) =>
-          axios.put(`http://localhost:5000/api/newsletters/${newsletter._id}`, {
-            checkbox: false,
-          }),
+          axios.put(
+            `https://bamoscoffee.up.railway.app/api/newsletters/${newsletter._id}`,
+            {
+              checkbox: false,
+            },
+          ),
         );
         await Promise.all(promises);
         console.log("Hủy chọn tất cả thành công!");
@@ -214,9 +217,12 @@ const ManageNewsletter = () => {
 
         // Gửi API cập nhật trạng thái checkbox về backend
         const promises = newsletters.map((newsletter) =>
-          axios.put(`http://localhost:5000/api/newsletters/${newsletter._id}`, {
-            checkbox: true,
-          }),
+          axios.put(
+            `https://bamoscoffee.up.railway.app/api/newsletters/${newsletter._id}`,
+            {
+              checkbox: true,
+            },
+          ),
         );
         await Promise.all(promises);
         console.log("Chọn tất cả thành công!");
@@ -241,14 +247,18 @@ const ManageNewsletter = () => {
             className="w-72 rounded-md border border-gray-300 p-2"
           />
           <div className="mb-4 flex items-center">
-            <label className="mr-4 mt-8 font-josefin text-2xl font-bold">Từ:</label>
+            <label className="mr-4 mt-8 font-josefin text-2xl font-bold">
+              Từ:
+            </label>
             <input
               type="date"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
               className="mt-5 w-40 rounded-md border border-gray-300 p-2"
             />
-            <label className="mx-4 mt-8 font-josefin text-2xl font-bold">Đến:</label>
+            <label className="mx-4 mt-8 font-josefin text-2xl font-bold">
+              Đến:
+            </label>
             <input
               type="date"
               value={endDate}
@@ -259,7 +269,7 @@ const ManageNewsletter = () => {
 
           <button
             onClick={handleSelectAll}
-            className={`rounded-md w-[140px] px-4 py-2 text-white transition-transform duration-200 hover:scale-95 ${
+            className={`w-[140px] rounded-md px-4 py-2 text-white transition-transform duration-200 hover:scale-95 ${
               allSelected ? "bg-red-600" : "bg-blue-500"
             }`}
           >

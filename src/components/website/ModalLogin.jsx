@@ -26,7 +26,7 @@ const LoginPage = () => {
     setLoading(true); // Set loading to true when request starts
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        "https://bamoscoffee.up.railway.app/api/auth/login",
         {
           username,
           password,
@@ -98,7 +98,7 @@ const LoginPage = () => {
     try {
       // Gửi yêu cầu đăng ký trực tiếp
       const response = await axios.post(
-        "http://localhost:5000/api/accounts/register-customer",
+        "https://bamoscoffee.up.railway.app/api/accounts/register-customer",
         {
           username,
           password,
@@ -108,7 +108,7 @@ const LoginPage = () => {
       );
 
       if (response.data.success) {
-        toast.success("Đăng ký thành công!"); 
+        toast.success("Đăng ký thành công!");
         setErrorMessage("");
         setRegisterMode(false);
       } else {

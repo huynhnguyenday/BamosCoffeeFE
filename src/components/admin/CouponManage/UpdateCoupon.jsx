@@ -26,7 +26,7 @@ const UpdateCoupon = ({ coupon, onClose, onUpdateSuccess }) => {
 
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/coupons/${updatedCoupon._id}`,
+        `https://bamoscoffee.up.railway.app/api/coupons/${updatedCoupon._id}`,
         updatedCoupon,
       );
 
@@ -97,7 +97,7 @@ const UpdateCoupon = ({ coupon, onClose, onUpdateSuccess }) => {
             />
           </div>
 
-          <div className="flex justify-center space-x-40 mt-8">
+          <div className="mt-8 flex justify-center space-x-40">
             <button
               type="button"
               onClick={handleCancel}

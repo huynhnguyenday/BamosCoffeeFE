@@ -59,7 +59,9 @@ const ManageChart = () => {
   // Hàm gọi API để lấy dữ liệu đơn hàng
   const fetchOrders = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/orders");
+      const response = await axios.get(
+        "https://bamoscoffee.up.railway.app/api/orders",
+      );
       console.log("Dữ liệu từ API:", response.data.data);
       setOrders(response.data.data);
     } catch (error) {

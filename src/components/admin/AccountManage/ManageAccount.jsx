@@ -26,9 +26,12 @@ const ManageAccount = () => {
     const fetchAccounts = async () => {
       setLoading(true); // Bắt đầu hiển thị loading
       try {
-        const response = await axios.get("http://localhost:5000/api/accounts", {
-          withCredentials: true,
-        });
+        const response = await axios.get(
+          "https://bamoscoffee.up.railway.app/api/accounts",
+          {
+            withCredentials: true,
+          },
+        );
         setAccounts(response.data.data);
       } catch (error) {
         console.error("Error fetching accounts:", error);
@@ -54,7 +57,7 @@ const ManageAccount = () => {
     try {
       // Gửi yêu cầu cập nhật trạng thái `isActive`
       await axios.put(
-        `http://localhost:5000/api/accounts/${id}`,
+        `https://bamoscoffee.up.railway.app/api/accounts/${id}`,
         { isActive: newIsActive },
         {
           headers: {
@@ -81,7 +84,7 @@ const ManageAccount = () => {
   const handleAddAccount = async (newAccount) => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/accounts",
+        "https://bamoscoffee.up.railway.app/api/accounts",
         newAccount,
         {
           headers: {
@@ -104,7 +107,6 @@ const ManageAccount = () => {
       throw error; // Throw the error so AddAccount can catch it
     }
   };
-
 
   const handleUpdateAccount = (updatedAccount) => {
     setAccounts((prevAccounts) =>

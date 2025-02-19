@@ -33,7 +33,7 @@ const RelatedProduct = ({ productId }) => {
       try {
         setLoading(true);
         const response = await axios.get(
-          `http://localhost:5000/api/products/relatedProducts/${productId}`,
+          `https://bamoscoffee.up.railway.app/api/products/relatedProducts/${productId}`,
         );
         if (response.data.success) {
           setProducts(response.data.data);

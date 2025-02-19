@@ -33,7 +33,7 @@ const ChangePassword = ({ onClose, onUpdateSuccess }) => {
     try {
       // Gọi API đổi mật khẩu
       const response = await axios.post(
-        "http://localhost:5000/api/auth/change-password",
+        "https://bamoscoffee.up.railway.app/api/auth/change-password",
         {
           oldPassword,
           newPassword,

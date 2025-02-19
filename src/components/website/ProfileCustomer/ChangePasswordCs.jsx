@@ -32,7 +32,7 @@ const ChangePasswordCs = ({ onClose, onUpdateSuccess }) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/change-password",
+        "https://bamoscoffee.up.railway.app/api/auth/change-password",
         {
           oldPassword,
           newPassword,
@@ -70,13 +70,13 @@ const ChangePasswordCs = ({ onClose, onUpdateSuccess }) => {
           <div className="relative">
             <input
               type={showOldPassword ? "text" : "password"}
-              className="h-14 text-xl w-full rounded border-2 px-2 pt-4 pb-3"
+              className="h-14 w-full rounded border-2 px-2 pb-3 pt-4 text-xl"
               value={oldPassword}
               onChange={(e) => setOldPassword(e.target.value)}
               required
             />
             <FontAwesomeIcon
-              icon={showOldPassword ? faEye :faEyeSlash}
+              icon={showOldPassword ? faEye : faEyeSlash}
               className="absolute right-4 top-1/2 -translate-y-1/2 transform cursor-pointer"
               onClick={() => setShowOldPassword(!showOldPassword)}
             />
@@ -88,13 +88,13 @@ const ChangePasswordCs = ({ onClose, onUpdateSuccess }) => {
           <div className="relative">
             <input
               type={showNewPassword ? "text" : "password"}
-              className="h-14 text-xl w-full rounded border-2 px-2 pt-4 pb-3"
+              className="h-14 w-full rounded border-2 px-2 pb-3 pt-4 text-xl"
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
               required
             />
             <FontAwesomeIcon
-              icon={showNewPassword ? faEye :faEyeSlash}
+              icon={showNewPassword ? faEye : faEyeSlash}
               className="absolute right-4 top-1/2 -translate-y-1/2 transform cursor-pointer"
               onClick={() => setShowNewPassword(!showNewPassword)}
             />
@@ -106,13 +106,13 @@ const ChangePasswordCs = ({ onClose, onUpdateSuccess }) => {
           <div className="relative">
             <input
               type={showConfirmPassword ? "text" : "password"}
-              className="h-14 text-xl w-full rounded border-2 px-2 pt-4 pb-3"
+              className="h-14 w-full rounded border-2 px-2 pb-3 pt-4 text-xl"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
             />
             <FontAwesomeIcon
-              icon={showConfirmPassword ? faEye :faEyeSlash}
+              icon={showConfirmPassword ? faEye : faEyeSlash}
               className="absolute right-4 top-1/2 -translate-y-1/2 transform cursor-pointer"
               onClick={() => setShowConfirmPassword(!showConfirmPassword)}
             />

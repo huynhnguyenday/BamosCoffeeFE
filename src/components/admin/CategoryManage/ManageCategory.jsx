@@ -22,9 +22,12 @@ const ManageCategory = () => {
   const fetchCategories = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("http://localhost:5000/api/categories", {
-        withCredentials: true,
-      });
+      const response = await axios.get(
+        "https://bamoscoffee.up.railway.app/api/categories",
+        {
+          withCredentials: true,
+        },
+      );
       setCategories(response.data.data);
     } catch (error) {
       console.error("Error fetching categories:", error);
@@ -50,9 +53,12 @@ const ManageCategory = () => {
       );
       setCategories(updatedCategories);
 
-      await axios.put(`http://localhost:5000/api/categories/${id}`, {
-        isActive: updatedCategories.find((p) => p._id === id).isActive,
-      });
+      await axios.put(
+        `https://bamoscoffee.up.railway.app/api/categories/${id}`,
+        {
+          isActive: updatedCategories.find((p) => p._id === id).isActive,
+        },
+      );
     } catch (error) {
       console.error("Error updating isActive:", error);
     }

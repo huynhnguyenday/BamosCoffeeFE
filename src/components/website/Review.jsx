@@ -24,7 +24,7 @@ const Review = ({ productId }) => {
 
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/reviews/${productId}`,
+          `https://bamoscoffee.up.railway.app/api/reviews/${productId}`,
         );
         if (response.data.success) {
           setReviews(response.data.data || []);
@@ -49,7 +49,7 @@ const Review = ({ productId }) => {
 
         if (accountId) {
           const response = await axios.get(
-            `http://localhost:5000/api/accounts/${accountId}`,
+            `https://bamoscoffee.up.railway.app/api/accounts/${accountId}`,
           );
           setAccountData(response.data.data);
 
@@ -118,7 +118,7 @@ const Review = ({ productId }) => {
 
     try {
       const response = await axios.post(
-        `http://localhost:5000/api/reviews/${productId}`,
+        `https://bamoscoffee.up.railway.app/api/reviews/${productId}`,
         newReview,
       );
       if (response.data.success) {

@@ -23,7 +23,7 @@ const BannerSwiper = () => {
     const fetchBannerBlogs = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/blogs/bannerBlogs",
+          "https://bamoscoffee.up.railway.app/api/blogs/bannerBlogs",
         );
         setBlogs(response.data.data); // Lưu dữ liệu vào state
       } catch (error) {

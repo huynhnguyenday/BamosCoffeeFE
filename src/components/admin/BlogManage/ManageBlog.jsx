@@ -27,7 +27,9 @@ const ManageBlog = () => {
     const fetchBlogs = async () => {
       try {
         setLoading(true);
-        const response = await axios.get("http://localhost:5000/api/blogs");
+        const response = await axios.get(
+          "https://bamoscoffee.up.railway.app/api/blogs",
+        );
         setBlogList(response.data.data);
       } catch (error) {
         console.error("Error fetching blogs:", error);
@@ -83,7 +85,7 @@ const ManageBlog = () => {
       setBlogList(updatedBlogs);
 
       // Gửi yêu cầu API để cập nhật trạng thái trên server
-      await axios.put(`http://localhost:5000/api/blogs/${id}`, {
+      await axios.put(`https://bamoscoffee.up.railway.app/api/blogs/${id}`, {
         displayHot: updatedBlogs.find((blog) => blog._id === id).displayHot,
       });
     } catch (error) {
@@ -111,7 +113,7 @@ const ManageBlog = () => {
       setBlogList(updatedBlogs);
 
       // Gửi yêu cầu API để cập nhật trạng thái trên server
-      await axios.put(`http://localhost:5000/api/blogs/${id}`, {
+      await axios.put(`https://bamoscoffee.up.railway.app/api/blogs/${id}`, {
         displayBanner: updatedBlogs.find((blog) => blog._id === id)
           .displayBanner,
       });

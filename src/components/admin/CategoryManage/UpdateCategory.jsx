@@ -27,7 +27,7 @@ const UpdateCategory = ({ category, onClose, onUpdateCategory }) => {
 
     axios
       .put(
-        `http://localhost:5000/api/categories/${updatedCategory._id}`,
+        `https://bamoscoffee.up.railway.app/api/categories/${updatedCategory._id}`,
         updatedCategory,
       )
       .then((response) => {

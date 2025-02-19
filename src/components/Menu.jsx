@@ -24,9 +24,11 @@ const Menu = () => {
     const fetchCategories = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/mainPages/activeCategories"
+          "https://bamoscoffee.up.railway.app/api/mainPages/activeCategories",
         );
-        const categoryData = response.data.data.map((category) => category.name);
+        const categoryData = response.data.data.map(
+          (category) => category.name,
+        );
         setCategories(["TẤT CẢ", ...categoryData]);
       } catch (error) {
         console.error("Error fetching categories:", error.message);
@@ -41,7 +43,7 @@ const Menu = () => {
       setIsLoading(true);
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/mainPages/activeProducts"
+          "https://bamoscoffee.up.railway.app/api/mainPages/activeProducts",
         );
         setProducts(response.data.data);
       } catch (error) {
@@ -85,7 +87,9 @@ const Menu = () => {
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts =
     activeCategory === "TẤT CẢ"
-      ? products.filter((item) => item.category?.isActive === 1).slice(indexOfFirstProduct, indexOfLastProduct)
+      ? products
+          .filter((item) => item.category?.isActive === 1)
+          .slice(indexOfFirstProduct, indexOfLastProduct)
       : products
           .filter((item) => item.category.name === activeCategory)
           .slice(indexOfFirstProduct, indexOfLastProduct);
@@ -94,7 +98,7 @@ const Menu = () => {
     (activeCategory === "TẤT CẢ"
       ? products.filter((item) => item.category?.isActive === 1)
       : products.filter((item) => item.category.name === activeCategory)
-    ).length / productsPerPage
+    ).length / productsPerPage,
   );
 
   return (

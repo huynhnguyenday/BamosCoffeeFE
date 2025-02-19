@@ -164,7 +164,9 @@ const OrderHistory = () => {
   useEffect(() => {
     // Fetch orders from the API
     axios
-      .get("http://localhost:5000/api/orders/token", { withCredentials: true }) // Replace with your API endpoint
+      .get("https://bamoscoffee.up.railway.app/api/orders/token", {
+        withCredentials: true,
+      }) // Replace with your API endpoint
       .then((response) => {
         setOrders(response.data.data); // Set the orders data
       })

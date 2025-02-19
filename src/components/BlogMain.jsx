@@ -20,7 +20,7 @@ const BlogMain = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          "http://localhost:5000/api/blogs/hotBlogs",
+          "https://bamoscoffee.up.railway.app/api/blogs/hotBlogs",
         ); // Đường dẫn đến API
         if (response.data.success) {
           setBlogs(response.data.data); // Lưu data vào state

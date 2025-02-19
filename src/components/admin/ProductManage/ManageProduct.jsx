@@ -28,7 +28,9 @@ const ManageProduct = () => {
   const fetchProducts = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("http://localhost:5000/api/products"); // Đường dẫn API
+      const response = await axios.get(
+        "https://bamoscoffee.up.railway.app/api/products",
+      ); // Đường dẫn API
       setProducts(response.data.data);
     } catch (error) {
       console.error("Error fetching products:", error);
@@ -39,7 +41,9 @@ const ManageProduct = () => {
 
   const fetchCategories = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/categories");
+      const response = await axios.get(
+        "https://bamoscoffee.up.railway.app/api/categories",
+      );
       setCategories(response.data.data);
     } catch (error) {
       console.error("Error fetching categories:", error);
@@ -60,7 +64,7 @@ const ManageProduct = () => {
   const handleCreateProduct = async (product) => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/products",
+        "https://bamoscoffee.up.railway.app/api/products",
         product,
       );
       setProducts([...products, response.data.data]);
@@ -93,7 +97,7 @@ const ManageProduct = () => {
       setProducts(updatedProducts);
 
       // Gửi yêu cầu cập nhật API
-      await axios.put(`http://localhost:5000/api/products/${id}`, {
+      await axios.put(`https://bamoscoffee.up.railway.app/api/products/${id}`, {
         displayType: updatedProducts.find((p) => p._id === id).displayType,
       });
     } catch (error) {
@@ -112,7 +116,7 @@ const ManageProduct = () => {
       setProducts(updatedProducts);
 
       // Gửi yêu cầu cập nhật API
-      await axios.put(`http://localhost:5000/api/products/${id}`, {
+      await axios.put(`https://bamoscoffee.up.railway.app/api/products/${id}`, {
         displayHot: updatedProducts.find((p) => p._id === id).displayHot,
       });
     } catch (error) {

@@ -23,7 +23,9 @@ const UpdateProduct = ({
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/categories");
+        const response = await fetch(
+          "https://bamoscoffee.up.railway.app/api/categories",
+        );
         const data = await response.json();
 
         const activeCategories = data.data.filter(
@@ -98,7 +100,7 @@ const UpdateProduct = ({
       }
 
       const response = await axios.put(
-        `http://localhost:5000/api/products/${updatedProduct._id}`,
+        `https://bamoscoffee.up.railway.app/api/products/${updatedProduct._id}`,
         formData,
         {
           headers: {

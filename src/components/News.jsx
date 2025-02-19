@@ -22,7 +22,9 @@ const News = () => {
     const fetchBlogs = async () => {
       try {
         setLoading(true);
-        const response = await axios.get("http://localhost:5000/api/blogs"); // API lấy blogs
+        const response = await axios.get(
+          "https://bamoscoffee.up.railway.app/api/blogs",
+        ); // API lấy blogs
         setNewsData(response.data.data); // Lưu dữ liệu vào state
       } catch (error) {
         console.error("Error fetching blogs:", error);
