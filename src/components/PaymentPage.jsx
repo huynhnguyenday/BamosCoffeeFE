@@ -492,8 +492,8 @@ const PaymentPage = () => {
                     className="h-20% w-20% rounded-lg object-cover"
                   />
                 </div>
-                <div className="w-3/5 pl-4 sm:w-[250px] lg:px-4 lg:pl-0">
-                  <span className="block truncate font-josefin text-2xl font-bold text-[#00561e]">
+                <div className="w-3/5 pl-4 sm:w-[250px] lg:px-4 lg:pl-4">
+                  <span className="line-clamp-1 font-josefin text-2xl font-bold text-[#00561e]">
                     {item.name}
                   </span>
                   <div className="mt-2 flex items-center space-x-2 pt-6">
