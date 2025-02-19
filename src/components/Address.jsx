@@ -4,11 +4,11 @@ import {
   faMapLocationDot,
   faPlaneDeparture,
 } from "@fortawesome/free-solid-svg-icons";
-import address1 from "../../../../BamosBE/backend/assets/address1.png";
-import address2 from "../../../../BamosBE/backend/assets/address2.png";
-import address3 from "../../../../BamosBE/backend/assets/address3.png";
-import address4 from "../../../../BamosBE/backend/assets/address4.png";
-import address5 from "../../../../BamosBE/backend/assets/address5.png";
+import address1 from "../../assets/address1.png";
+import address2 from "../../assets/address2.png";
+import address3 from "../../assets/address3.png";
+import address4 from "../../assets/address4.png";
+import address5 from "../../assets/address5.png";
 
 const MapWithCards = () => {
   // Địa chỉ và URL bản đồ cho mỗi Card

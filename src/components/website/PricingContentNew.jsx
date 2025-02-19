@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import imgnews1 from "../../../../../BamosBE/backend/assets/imgnews1.png";
-import imgnews2 from "../../../../../BamosBE/backend/assets/imgnews2.png";
-import imgnews3 from "../../../../../BamosBE/backend/assets/imgnews3.png";
+import imgnews1 from "../../../assets/imgnews1.png";
+import imgnews2 from "../../../assets/imgnews2.png";
+import imgnews3 from "../../../assets/imgnews3.png";
 import Loading from "./Loading"; // Import your loading component
 
 const PricingContentNew = ({ closeFlyout }) => {

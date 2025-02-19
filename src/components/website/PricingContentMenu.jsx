@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import imgdropdown1 from "../../../../../BamosBE/backend/assets/imgdropdown1.png";
-import imgdropdown2 from "../../../../../BamosBE/backend/assets/imgdropdown2.png";
-import imgdropdown3 from "../../../../../BamosBE/backend/assets/imgdropdown3.png";
+import imgdropdown1 from "../../../assets/imgdropdown1.png";
+import imgdropdown2 from "../../../assets/imgdropdown2.png";
+import imgdropdown3 from "../../../assets/imgdropdown3.png";
 import Loading from "./Loading";
 
 const PricingContentMenu = ({ closeFlyout }) => {

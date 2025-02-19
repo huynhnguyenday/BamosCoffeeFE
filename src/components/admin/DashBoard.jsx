@@ -17,7 +17,7 @@ import ManageBlog from "./BlogManage/ManageBlog";
 import ManageAccount from "./AccountManage/ManageAccount";
 import ManageCategory from "./CategoryManage/ManageCategory";
 import { Link } from "react-router-dom";
-import imgpersonportal from "../../../../../BamosBE/backend/assets/imgpersonportal.png";
+import imgpersonportal from "../../../assets/imgpersonportal.png";
 import Cookies from "js-cookie";
 import ManageOrder from "./OrderManage/ManageOrder";
 import ManageChart from "./ChartManage/ManageChart";

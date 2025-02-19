@@ -1,4 +1,4 @@
-import imgBackground from "../../../../BamosBE/backend/assets/img_background.png"; // Đường dẫn tới ảnh
+import imgBackground from "../../assets/img_background.png"; // Đường dẫn tới ảnh
 
 const MainSlider = () => {
   return (
