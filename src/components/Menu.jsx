@@ -160,7 +160,7 @@ const Menu = () => {
           <div className="flex flex-wrap gap-0">
             {currentProducts.map((item) => (
               <div
-                className="group relative mt-8 flex h-[340px] w-[180px] flex-col justify-between border-l border-r border-gray-300 bg-white p-3 text-center transition-shadow ease-linear lg:h-[340px] lg:w-[250px]"
+                className="group relative mt-8 flex h-[340px] w-[185px] flex-col justify-between border-l border-r border-gray-300 bg-white p-3 text-center transition-shadow ease-linear lg:h-[340px] lg:w-[250px]"
                 key={item._id}
               >
                 <div>
