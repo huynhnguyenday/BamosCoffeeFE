@@ -16,7 +16,6 @@ import BlogMain from "./components/BlogMain";
 import News from "./components/News";
 import PaymentPage from "./components/PaymentPage";
 import Admin from "./components/admin/Admin";
-import "./app.css";
 import OrderFail from "./components/website/OrderFail";
 import OrderSuccess from "./components/website/OrderSuccess";
 import ModalLogin from "./components/website/ModalLogin";
