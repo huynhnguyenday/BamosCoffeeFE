@@ -11,7 +11,14 @@ import Loading from "../components/website/Loading";
 
 const BlogMain = () => {
   const [blogs, setBlogs] = useState([]); // State lưu trữ dữ liệu blogs
-  const [ref, inView] = useInView({ threshold: 0.2, triggerOnce: false });
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const [ref, inView] = useInView({ threshold: 0.2 });
+
+  useEffect(() => {
+    if (inView && !hasAnimated) {
+      setHasAnimated(true);
+    }
+  }, [inView, hasAnimated]);
   const [loading, setLoading] = useState(true);
 
   // Fetch blogs từ API
@@ -77,8 +84,7 @@ const BlogMain = () => {
                   <motion.div
                     className="flex justify-center"
                     initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
+                    animate={hasAnimated ? "visible" : "hidden"} // Chạy một lần
                     custom={index}
                     variants={cardVariants}
                   >
