@@ -144,7 +144,7 @@ const ProductSlider = () => {
                   </div>
                 </div>
 
-                <div className="red-button absolute bottom-0 left-0 w-full opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100">
+                <div className="red-button absolute bottom-0 left-0 w-full opacity-100 lg:opacity-0 transition-opacity duration-300 ease-in-out lg:group-hover:opacity-100">
                   <button
                     onClick={() => handleAddToCart(product)}
                     className="w-full cursor-pointer bg-[#d88453] py-3 text-sm font-semibold text-white transition-colors duration-300 ease-in-out hover:bg-[#633c02]"
