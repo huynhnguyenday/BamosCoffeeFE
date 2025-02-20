@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebook,
@@ -9,8 +8,6 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
-  const [ref, inView] = useInView({ threshold: 0.2, triggerOnce: false });
-
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: (i) => ({
@@ -26,13 +23,14 @@ const Footer = () => {
       style={{ height: "250px" }}
     >
       <div className="mx-auto w-full px-2 pt-8 lg:px-6">
-        <div className="mx-auto max-w-full lg:w-[1200px]" ref={ref}>
+        <div className="mx-auto max-w-full lg:w-[1200px]">
           <div className="flex flex-wrap items-start justify-between">
             {/* Left Section */}
             <motion.div
               className="mb-6 w-full sm:mb-0 sm:w-1/3"
               initial="hidden"
-              animate={inView ? "visible" : "hidden"}
+              whileInView="visible"
+              viewport={{ once: true }}
               custom={0}
               variants={itemVariants}
             >
@@ -51,7 +49,8 @@ const Footer = () => {
             <motion.div
               className="mb-6 w-full text-center sm:mb-0 sm:w-1/3"
               initial="hidden"
-              animate={inView ? "visible" : "hidden"}
+              whileInView="visible"
+              viewport={{ once: true }}
               custom={1}
               variants={itemVariants}
             >
@@ -91,11 +90,12 @@ const Footer = () => {
             <motion.div
               className="w-full text-right sm:w-1/3"
               initial="hidden"
-              animate={inView ? "visible" : "hidden"}
+              whileInView="visible"
+              viewport={{ once: true }}
               custom={5}
               variants={itemVariants}
             >
-              <h2 className="mb-4 pr-32 text-3xl font-bold text-[#633c02] lg:pr-24">
+              <h2 className="mb-4 text-center text-3xl font-bold text-[#633c02] lg:pl-[110px]">
                 Liên hệ
               </h2>
               <div className="mb-4 flex justify-center space-x-4 sm:justify-end">

@@ -77,7 +77,8 @@ const BlogMain = () => {
                   <motion.div
                     className="flex justify-center"
                     initial="hidden"
-                    animate={inView ? "visible" : "hidden"}
+                    whileInView="visible"
+                    viewport={{ once: true }}
                     custom={index}
                     variants={cardVariants}
                   >

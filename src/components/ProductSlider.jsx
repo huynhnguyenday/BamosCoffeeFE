@@ -95,20 +95,14 @@ const ProductSlider = () => {
             <SwiperSlide key={product._id}>
               <motion.div
                 className="product-card group relative flex h-[350px] flex-col justify-between border-l border-r border-[#e7e6e6] bg-white p-4 text-center hover:border-l-2 hover:border-r-2 hover:border-t-2 hover:border-[#d5d5d5]"
-                initial="hidden"
-                animate={controls}
-                variants={{
-                  hidden: { opacity: 0, y: 100 },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: {
-                      delay: index * 0.2,
-                      type: "spring",
-                      stiffness: 80,
-                    },
-                  },
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  delay: index * 0.2,
+                  type: "spring",
+                  stiffness: 80,
                 }}
+                viewport={{ once: true }} // Chỉ chạy 1 lần khi xuất hiện
               >
                 <div className="product-image">
                   <Link to={`/detailfood/${product._id}`}>
@@ -123,7 +117,7 @@ const ProductSlider = () => {
                   HOT
                 </div>
                 <div className="product-info mb-10 mt-2">
-                  <h6 className="product-name font-josefin text-xl line-clamp-1 font-bold text-[#00561e]">
+                  <h6 className="product-name line-clamp-1 font-josefin text-xl font-bold text-[#00561e]">
                     <Link to={`/detailfood/${product._id}`}>
                       {product.name.split(" ").slice(0, 4).join(" ")}
                       {/* Giới hạn 20 từ */}
@@ -144,7 +138,7 @@ const ProductSlider = () => {
                   </div>
                 </div>
 
-                <div className="red-button absolute bottom-0 left-0 w-full opacity-100 lg:opacity-0 transition-opacity duration-300 ease-in-out lg:group-hover:opacity-100">
+                <div className="red-button absolute bottom-0 left-0 w-full opacity-100 transition-opacity duration-300 ease-in-out lg:opacity-0 lg:group-hover:opacity-100">
                   <button
                     onClick={() => handleAddToCart(product)}
                     className="w-full cursor-pointer bg-[#d88453] py-3 text-sm font-semibold text-white transition-colors duration-300 ease-in-out hover:bg-[#633c02]"
