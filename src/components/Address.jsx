@@ -69,7 +69,7 @@ const MapWithCards = () => {
   });
 
   return (
-    <div className="mx-auto mt-5 w-[1200px]">
+    <div className="mx-auto mt-5 px-2 lg:w-[1200px] lg:px-0">
       <div className="row flex flex-wrap">
         {/* Tiêu đề danh sách cửa hàng */}
         <div className="mb-3 w-full">
