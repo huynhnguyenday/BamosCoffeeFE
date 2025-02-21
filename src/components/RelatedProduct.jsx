@@ -17,16 +17,16 @@ const RelatedProduct = ({ productId }) => {
   const swiperRef = useRef(null);
   const [showArrows, setShowArrows] = useState(false);
   const [loading, setLoading] = useState(true);
-  const controls = useAnimation();
+  const [hasAnimated, setHasAnimated] = useState(false);
   const [ref, inView] = useInView({ threshold: 0.5 });
+  const controls = useAnimation();
 
   useEffect(() => {
-    if (inView) {
+    if (inView && !hasAnimated) {
       controls.start("visible");
-    } else {
-      controls.start("hidden");
+      setHasAnimated(true);
     }
-  }, [controls, inView]);
+  }, [inView, hasAnimated, controls]);
 
   useEffect(() => {
     const fetchRelatedProducts = async () => {
@@ -95,7 +95,7 @@ const RelatedProduct = ({ productId }) => {
               <motion.div
                 className="product-card group relative flex h-[350px] flex-col justify-between border-l border-r border-[#e7e6e6] bg-white p-4 text-center hover:border-l-2 hover:border-r-2 hover:border-t-2 hover:border-[#d5d5d5]"
                 initial="hidden"
-                animate={controls}
+                animate={hasAnimated ? "visible" : "hidden"} 
                 variants={{
                   hidden: { opacity: 0, y: 100 },
                   visible: {
@@ -119,7 +119,7 @@ const RelatedProduct = ({ productId }) => {
                   </Link>
                 </div>
                 <div className="product-info mb-10 mt-2">
-                  <h6 className="product-name font-josefin text-xl line-clamp-1 font-bold text-[#00561e]">
+                  <h6 className="product-name line-clamp-1 font-josefin text-xl font-bold text-[#00561e]">
                     <Link to={`/detailfood/${product._id}`}>
                       {product.name.split(" ").slice(0, 4).join(" ")}
                       {/* Giới hạn 20 từ */}
