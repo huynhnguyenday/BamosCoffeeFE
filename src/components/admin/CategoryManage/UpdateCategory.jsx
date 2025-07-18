@@ -27,7 +27,7 @@ const UpdateCategory = ({ category, onClose, onUpdateCategory }) => {
 
     axios
       .put(
-        `https://bamoscoffeehh.up.railway.app/api/categories/${updatedCategory._id}`,
+        `https://bamosbe.com/api/categories/${updatedCategory._id}`,
         updatedCategory,
       )
       .then((response) => {

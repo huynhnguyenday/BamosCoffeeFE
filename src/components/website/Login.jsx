@@ -39,7 +39,7 @@ const Login = () => {
     try {
       // Gửi yêu cầu logout tới backend (xóa JWT cookie ở server)
       const response = await axios.post(
-        "https://bamoscoffeehh.up.railway.app/api/auth/logout",
+        "https://bamosbe.com/api/auth/logout",
         {},
         { withCredentials: true },
       );

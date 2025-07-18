@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import LoadingWhite from "./LoadingWhite"; // Import component Loading
+import axios from "axios"; // Import axios
 
 const ModalForgotPassword = () => {
   const [email, setEmail] = useState(""); // State lưu email
@@ -12,16 +13,12 @@ const ModalForgotPassword = () => {
     e.preventDefault();
     setIsLoading(true); // Bắt đầu loading
     try {
-      const response = await fetch(
-        "https://bamoscoffeehh.up.railway.app/api/auth/forgot-password",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email }),
-        },
+      const response = await axios.post(
+        "https://bamosbe.com/api/auth/forgot-password",
+        { email },
       );
 
-      const data = await response.json();
+      const data = response.data;
       if (data.success) {
         localStorage.setItem("email", email);
         toast.success(data.message);

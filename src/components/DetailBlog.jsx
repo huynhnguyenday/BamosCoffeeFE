@@ -19,7 +19,7 @@ const DetailBlog = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          `https://bamoscoffeehh.up.railway.app/api/blogs/${id}`,
+          `https://bamosbe.com/api/blogs/${id}`,
         ); // Gọi API lấy bài viết
 
         if (response.data.success) {
@@ -27,7 +27,7 @@ const DetailBlog = () => {
 
           // Fetch danh sách bài viết liên quan (trừ bài viết hiện tại)
           const relatedResponse = await axios.get(
-            "https://bamoscoffeehh.up.railway.app/api/blogs",
+            "https://bamosbe.com/api/blogs",
           );
           if (relatedResponse.data.success) {
             setRelatedBlogs(

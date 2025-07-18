@@ -35,7 +35,7 @@ const AddBlog = ({ onClose, onBlogAdded }) => {
 
     try {
       const response = await axios.post(
-        "https://bamoscoffeehh.up.railway.app/api/blogs",
+        "https://bamosbe.com/api/blogs",
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },

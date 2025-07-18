@@ -22,10 +22,10 @@ const AddProduct = ({ showModal, setShowModal }) => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch(
-          "https://bamoscoffeehh.up.railway.app/api/categories",
+        const response = await axios.get(
+          "https://bamosbe.com/api/categories",
         );
-        const data = await response.json();
+        const data = response.data;
 
         // Lọc danh mục có isActive = 1
         const activeCategories = data.data.filter(
@@ -79,7 +79,7 @@ const AddProduct = ({ showModal, setShowModal }) => {
 
     try {
       const response = await axios.post(
-        "https://bamoscoffeehh.up.railway.app/api/products",
+        "https://bamosbe.com/api/products",
         formData,
         {
           headers: {

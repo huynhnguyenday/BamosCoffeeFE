@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios"; // Added axios import
 
 const AddAccount = ({ onAddAccount, onClose }) => {
   const [newAccount, setNewAccount] = useState({
@@ -47,16 +48,12 @@ const AddAccount = ({ onAddAccount, onClose }) => {
 
     try {
       const date = new Date().toLocaleDateString("en-GB"); // Format: DD-MM-YYYY
-      const response = await onAddAccount({
-        ...newAccount,
-        createAt: date,
-        updateAt: date,
-      });
+      const response = await axios.post("https://bamosbe.com/api/accounts", newAccount);
 
-      if (response.success) {
+      if (response.data.success) {
         onClose(); // Close the form on success
       } else {
-        setErrors({ form: response.message }); // Display API error message
+        setErrors({ form: response.data.message }); // Display API error message
       }
     } catch (error) {
       console.error("Error creating account:", error);

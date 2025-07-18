@@ -16,7 +16,7 @@ const Newsletter = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "https://bamoscoffeehh.up.railway.app/api/newsletters",
+        "https://bamosbe.com/api/newsletters",
         {
           gmail: email,
           checkbox: false,

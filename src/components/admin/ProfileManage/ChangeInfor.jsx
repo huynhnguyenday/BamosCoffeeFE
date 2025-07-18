@@ -27,7 +27,7 @@ const ChangeInfor = ({ onClose, onUpdateSuccess }) => {
 
       try {
         const response = await axios.get(
-          `https://bamoscoffeehh.up.railway.app/api/accounts/${userId}`,
+          `https://bamosbe.com/api/accounts/${userId}`,
         );
         if (response.data.success) {
           setEmail(response.data.data.gmail);
@@ -72,7 +72,7 @@ const ChangeInfor = ({ onClose, onUpdateSuccess }) => {
 
     try {
       const response = await axios.put(
-        `https://bamoscoffeehh.up.railway.app/api/accounts/update-gmail-numbers/${userId}`,
+        `https://bamosbe.com/api/accounts/${userId}`,
         { gmail: email, numbers: phone },
       );
       if (response.data.success) {

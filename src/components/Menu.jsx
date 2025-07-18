@@ -24,7 +24,7 @@ const Menu = () => {
     const fetchCategories = async () => {
       try {
         const response = await axios.get(
-          "https://bamoscoffeehh.up.railway.app/api/mainPages/activeCategories",
+          "https://bamosbe.com/api/mainPages/activeCategories",
         );
         const categoryData = response.data.data.map(
           (category) => category.name,
@@ -43,7 +43,7 @@ const Menu = () => {
       setIsLoading(true);
       try {
         const response = await axios.get(
-          "https://bamoscoffeehh.up.railway.app/api/mainPages/activeProducts",
+          "https://bamosbe.com/api/mainPages/activeProducts",
         );
         setProducts(response.data.data);
       } catch (error) {
