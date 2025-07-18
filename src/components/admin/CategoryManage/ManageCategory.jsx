@@ -23,7 +23,7 @@ const ManageCategory = () => {
     setLoading(true);
     try {
       const response = await axios.get(
-        "https://bamosbe.com/api/categories",
+        "https://chuz1qpd.up.railway.app/api/categories",
         {
           withCredentials: true,
         },
@@ -54,7 +54,7 @@ const ManageCategory = () => {
       setCategories(updatedCategories);
 
       await axios.put(
-        `https://bamosbe.com/api/categories/${id}`,
+        `https://chuz1qpd.up.railway.app/api/categories/${id}`,
         {
           isActive: updatedCategories.find((p) => p._id === id).isActive,
         },

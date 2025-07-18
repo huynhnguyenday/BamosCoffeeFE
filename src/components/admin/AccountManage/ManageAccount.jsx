@@ -27,7 +27,7 @@ const ManageAccount = () => {
       setLoading(true); // Bắt đầu hiển thị loading
       try {
         const response = await axios.get(
-          "https://bamosbe.com/api/accounts",
+          "https://chuz1qpd.up.railway.app/api/accounts",
           {
             withCredentials: true,
           },
@@ -57,7 +57,7 @@ const ManageAccount = () => {
     try {
       // Gửi yêu cầu cập nhật trạng thái `isActive`
       await axios.put(
-        `https://bamosbe.com/api/accounts/${id}`,
+        `https://chuz1qpd.up.railway.app/api/accounts/${id}`,
         { isActive: newIsActive },
         {
           headers: {
@@ -84,7 +84,7 @@ const ManageAccount = () => {
   const handleAddAccount = async (newAccount) => {
     try {
       const response = await axios.post(
-        "https://bamosbe.com/api/accounts",
+        "https://chuz1qpd.up.railway.app/api/accounts",
         newAccount,
         {
           headers: {

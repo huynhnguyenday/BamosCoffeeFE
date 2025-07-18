@@ -18,7 +18,7 @@ const ManageCoupon = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        "https://bamosbe.com/api/coupons",
+        "https://chuz1qpd.up.railway.app/api/coupons",
       ); // Thay bằng endpoint API thực tế
       if (response.data && Array.isArray(response.data.data)) {
         setCoupons(response.data.data);

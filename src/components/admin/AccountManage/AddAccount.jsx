@@ -48,7 +48,7 @@ const AddAccount = ({ onAddAccount, onClose }) => {
 
     try {
       const date = new Date().toLocaleDateString("en-GB"); // Format: DD-MM-YYYY
-      const response = await axios.post("https://bamosbe.com/api/accounts", newAccount);
+      const response = await axios.post("https://chuz1qpd.up.railway.app/api/accounts", newAccount);
 
       if (response.data.success) {
         onClose(); // Close the form on success

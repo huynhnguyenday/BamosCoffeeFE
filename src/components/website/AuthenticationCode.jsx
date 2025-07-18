@@ -23,7 +23,7 @@ const AuthenticationCode = () => {
       try {
         // Gửi yêu cầu xác thực mã OTP
         const response = await fetch(
-          "https://bamosbe.com/api/auth/verify-otp",
+          "https://chuz1qpd.up.railway.app/api/auth/verify-otp",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },

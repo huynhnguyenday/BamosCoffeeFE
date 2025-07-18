@@ -26,7 +26,7 @@ const LoginPage = () => {
     setLoading(true); // Set loading to true when request starts
     try {
       const response = await axios.post(
-        "https://bamosbe.com/api/auth/login",
+        "https://chuz1qpd.up.railway.app/api/auth/login",
         {
           username,
           password,
@@ -98,7 +98,7 @@ const LoginPage = () => {
     try {
       // Gửi yêu cầu đăng ký trực tiếp
       const response = await axios.post(
-        "https://bamosbe.com/api/accounts/register-customer",
+        "https://chuz1qpd.up.railway.app/api/accounts/register-customer",
         {
           username,
           password,

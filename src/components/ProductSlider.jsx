@@ -34,7 +34,7 @@ const ProductSlider = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          "https://bamosbe.com/api/mainPages",
+          "https://chuz1qpd.up.railway.app/api/mainPages",
         );
         if (response.data.success) {
           setProducts(response.data.data);

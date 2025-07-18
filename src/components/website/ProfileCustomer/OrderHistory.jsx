@@ -164,7 +164,7 @@ const OrderHistory = () => {
   useEffect(() => {
     // Fetch orders from the API
     axios
-      .get("https://bamosbe.com/api/orders/token", {
+      .get("https://chuz1qpd.up.railway.app/api/orders/token", {
         withCredentials: true,
       }) // Replace with your API endpoint
       .then((response) => {

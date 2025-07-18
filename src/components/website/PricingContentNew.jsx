@@ -15,7 +15,7 @@ const PricingContentNew = ({ closeFlyout }) => {
     const fetchLatestBlogs = async () => {
       try {
         const response = await axios.get(
-          "https://bamosbe.com/api/blogs/latestBlogs",
+          "https://chuz1qpd.up.railway.app/api/blogs/latestBlogs",
         );
         if (response.data.success) {
           setLatestBlogs(response.data.data); // Cập nhật danh sách blogs
