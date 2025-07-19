@@ -23,7 +23,7 @@ const AddCategory = ({ onAddCategory, onClose, onFetchCategories }) => {
 
     try {
       const response = await axios.post(
-        "https://chuz1qpd.up.railway.app/api/categories",
+        "https://bamosbe-production.up.railway.app/api/categories",
         newCategory,
       );
 

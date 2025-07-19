@@ -26,7 +26,7 @@ const AddCoupon = ({ onClose, onAddSuccess }) => {
 
     try {
       const response = await axios.post(
-        "https://chuz1qpd.up.railway.app/api/coupons",
+        "https://bamosbe-production.up.railway.app/api/coupons",
         newCoupon,
       );
 

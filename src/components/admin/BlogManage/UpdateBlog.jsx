@@ -38,7 +38,7 @@ const UpdateBlog = ({ blog, onClose, onBlogUpdated }) => {
 
     try {
       const response = await axios.put(
-        `https://chuz1qpd.up.railway.app/api/blogs/${blog._id}`,
+        `https://bamosbe-production.up.railway.app/api/blogs/${blog._id}`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },

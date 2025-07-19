@@ -33,7 +33,7 @@ const UpdateAccount = ({ account, onClose, onUpdateAccount }) => {
 
     axios
       .put(
-        `https://chuz1qpd.up.railway.app/api/accounts/${updatedAccount._id}`,
+        `https://bamosbe-production.up.railway.app/api/accounts/${updatedAccount._id}`,
         updatedAccount,
         {
           headers: {

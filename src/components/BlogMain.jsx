@@ -27,7 +27,7 @@ const BlogMain = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          "https://chuz1qpd.up.railway.app/api/blogs/hotBlogs",
+          "https://bamosbe-production.up.railway.app/api/blogs/hotBlogs",
         ); // Đường dẫn đến API
         if (response.data.success) {
           setBlogs(response.data.data); // Lưu data vào state

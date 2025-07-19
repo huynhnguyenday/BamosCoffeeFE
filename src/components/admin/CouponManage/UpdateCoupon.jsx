@@ -26,7 +26,7 @@ const UpdateCoupon = ({ coupon, onClose, onUpdateSuccess }) => {
 
     try {
       const response = await axios.put(
-        `https://chuz1qpd.up.railway.app/api/coupons/${updatedCoupon._id}`,
+        `https://bamosbe-production.up.railway.app/api/coupons/${updatedCoupon._id}`,
         updatedCoupon,
       );
 

@@ -60,7 +60,7 @@ const ManageChart = () => {
   const fetchOrders = async () => {
     try {
       const response = await axios.get(
-        "https://chuz1qpd.up.railway.app/api/orders",
+        "https://bamosbe-production.up.railway.app/api/orders",
       );
       console.log("Dữ liệu từ API:", response.data.data);
       setOrders(response.data.data);

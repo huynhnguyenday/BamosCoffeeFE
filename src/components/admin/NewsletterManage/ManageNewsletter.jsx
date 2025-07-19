@@ -20,7 +20,7 @@ const ManageNewsletter = () => {
   const updateNewsletterCheckbox = async (id, checkbox) => {
     try {
       const response = await axios.put(
-        `https://chuz1qpd.up.railway.app/api/newsletters/${id}`,
+        `https://bamosbe-production.up.railway.app/api/newsletters/${id}`,
         { checkbox },
       );
       if (response.data.success) {
@@ -36,7 +36,7 @@ const ManageNewsletter = () => {
   const fetchValidCoupons = async () => {
     try {
       const response = await axios.get(
-        "https://chuz1qpd.up.railway.app/api/coupons/valid-coupons",
+        "https://bamosbe-production.up.railway.app/api/coupons/valid-coupons",
       );
       if (response.data.success) {
         setValidCoupons(response.data.data);
@@ -62,7 +62,7 @@ const ManageNewsletter = () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          "https://chuz1qpd.up.railway.app/api/newsletters",
+          "https://bamosbe-production.up.railway.app/api/newsletters",
         );
         if (response.data.success) {
           setNewsletters(response.data.data);
@@ -138,7 +138,7 @@ const ManageNewsletter = () => {
     try {
       // Gửi API với danh sách email và coupon đã chọn
       const response = await axios.post(
-        "https://chuz1qpd.up.railway.app/api/coupons/send-coupon",
+        "https://bamosbe-production.up.railway.app/api/coupons/send-coupon",
         {
           emails: selectedEmails, // Danh sách email
           couponCode: selectedCoupon, // Mã coupon
@@ -153,7 +153,7 @@ const ManageNewsletter = () => {
           .filter((newsletter) => newsletter.checkbox)
           .map((newsletter) =>
             axios.delete(
-              `https://chuz1qpd.up.railway.app/api/newsletters/${newsletter._id}`,
+              `https://bamosbe-production.up.railway.app/api/newsletters/${newsletter._id}`,
             ),
           );
 
@@ -193,7 +193,7 @@ const ManageNewsletter = () => {
         // Gửi API cập nhật trạng thái checkbox về backend
         const promises = newsletters.map((newsletter) =>
           axios.put(
-            `https://chuz1qpd.up.railway.app/api/newsletters/${newsletter._id}`,
+            `https://bamosbe-production.up.railway.app/api/newsletters/${newsletter._id}`,
             {
               checkbox: false,
             },
@@ -218,7 +218,7 @@ const ManageNewsletter = () => {
         // Gửi API cập nhật trạng thái checkbox về backend
         const promises = newsletters.map((newsletter) =>
           axios.put(
-            `https://chuz1qpd.up.railway.app/api/newsletters/${newsletter._id}`,
+            `https://bamosbe-production.up.railway.app/api/newsletters/${newsletter._id}`,
             {
               checkbox: true,
             },

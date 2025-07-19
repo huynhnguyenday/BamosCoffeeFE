@@ -11,7 +11,7 @@ const VerifyOtp = ({ email, onSuccess, onClose }) => {
       console.log("Email từ props:", email); // Kiểm tra email đã nhận đúng chưa
 
       const response = await axios.post(
-        "https://chuz1qpd.up.railway.app/api/auth/verify-otp",
+        "https://bamosbe-production.up.railway.app/api/auth/verify-otp",
         {
           email,
           otp,

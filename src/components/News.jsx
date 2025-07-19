@@ -23,7 +23,7 @@ const News = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          "https://chuz1qpd.up.railway.app/api/blogs",
+          "https://bamosbe-production.up.railway.app/api/blogs",
         ); // API lấy blogs
         setNewsData(response.data.data); // Lưu dữ liệu vào state
       } catch (error) {

@@ -14,7 +14,7 @@ const ModalForgotPassword = () => {
     setIsLoading(true); // Bắt đầu loading
     try {
       const response = await axios.post(
-        "https://chuz1qpd.up.railway.app/api/auth/forgot-password",
+        "https://bamosbe-production.up.railway.app/api/auth/forgot-password",
         { email },
       );
 

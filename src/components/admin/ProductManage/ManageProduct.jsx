@@ -29,7 +29,7 @@ const ManageProduct = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        "https://chuz1qpd.up.railway.app/api/products",
+        "https://bamosbe-production.up.railway.app/api/products",
       ); // Đường dẫn API
       setProducts(response.data.data);
     } catch (error) {
@@ -42,7 +42,7 @@ const ManageProduct = () => {
   const fetchCategories = async () => {
     try {
       const response = await axios.get(
-        "https://chuz1qpd.up.railway.app/api/categories",
+        "https://bamosbe-production.up.railway.app/api/categories",
       );
       setCategories(response.data.data);
     } catch (error) {
@@ -64,7 +64,7 @@ const ManageProduct = () => {
   const handleCreateProduct = async (product) => {
     try {
       const response = await axios.post(
-        "https://chuz1qpd.up.railway.app/api/products",
+        "https://bamosbe-production.up.railway.app/api/products",
         product,
       );
       setProducts([...products, response.data.data]);
@@ -98,7 +98,7 @@ const ManageProduct = () => {
 
       // Gửi yêu cầu cập nhật API
       await axios.put(
-        `https://chuz1qpd.up.railway.app/api/products/${id}`,
+        `https://bamosbe-production.up.railway.app/api/products/${id}`,
         {
           displayType: updatedProducts.find((p) => p._id === id).displayType,
         },
@@ -120,7 +120,7 @@ const ManageProduct = () => {
 
       // Gửi yêu cầu cập nhật API
       await axios.put(
-        `https://chuz1qpd.up.railway.app/api/products/${id}`,
+        `https://bamosbe-production.up.railway.app/api/products/${id}`,
         {
           displayHot: updatedProducts.find((p) => p._id === id).displayHot,
         },

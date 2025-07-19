@@ -17,7 +17,7 @@ const PricingContentMenu = ({ closeFlyout }) => {
       try {
         setLoading(true);
         const response = await axios.get(
-          "https://chuz1qpd.up.railway.app/api/mainPages/activeCategories",
+          "https://bamosbe-production.up.railway.app/api/mainPages/activeCategories",
         );
         const categoryData = response.data.data.map(
           (category) => category.name,

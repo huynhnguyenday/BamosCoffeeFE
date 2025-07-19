@@ -41,7 +41,7 @@ const ResetPassword = () => {
       }
 
       const response = await axios.post(
-        "https://chuz1qpd.up.railway.app/api/auth/reset-password",
+        "https://bamosbe-production.up.railway.app/api/auth/reset-password",
         {
           email,
           newPassword: password,
