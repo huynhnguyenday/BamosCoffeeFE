@@ -3,6 +3,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronLeft,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
 import ModalProduct from "./ModalProduct";
 import axios from "axios";
 import { API_BASE_URL } from "../config/api";
@@ -17,8 +22,9 @@ const ProductSlider = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const swiperRef = useRef(null);
-  const [showArrows, setShowArrows] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [canSlidePrev, setCanSlidePrev] = useState(false);
+  const [canSlideNext, setCanSlideNext] = useState(true);
 
   const hasAnimatedRef = useRef(false);
   const controls = useAnimation();
@@ -35,9 +41,7 @@ const ProductSlider = () => {
     const fetchProducts = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(
-          `${API_BASE_URL}/api/mainPages`,
-        );
+        const response = await axios.get(`${API_BASE_URL}/api/mainPages`);
         if (response.data.success) {
           setProducts(response.data.data);
         } else {
@@ -62,12 +66,18 @@ const ProductSlider = () => {
     setQuantity(1);
   };
 
+  const updateNavState = (swiper) => {
+    if (!swiper) {
+      return;
+    }
+    setCanSlidePrev(!swiper.isBeginning);
+    setCanSlideNext(!swiper.isEnd);
+  };
+
   return (
     <div
-      className="product-slider relative mx-auto mb-20 max-w-screen-xl overflow-visible bg-white px-2 py-10 lg:px-5"
+      className="product-slider group relative mx-auto mb-20 max-w-screen-xl overflow-visible bg-white px-2 py-10 lg:px-5"
       ref={ref}
-      onMouseEnter={() => setShowArrows(true)}
-      onMouseLeave={() => setShowArrows(false)}
     >
       <div className="slider-title my-6 text-center text-4xl font-bold text-[#633c02]">
         Sản phẩm bán chạy
@@ -83,10 +93,15 @@ const ProductSlider = () => {
           ref={swiperRef}
           spaceBetween={0}
           slidesPerView={5}
+          watchOverflow={true}
           navigation={{
-            prevEl: ".swiper-button-prev",
-            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev-product",
+            nextEl: ".swiper-button-next-product",
           }}
+          onSwiper={updateNavState}
+          onSlideChange={updateNavState}
+          onResize={updateNavState}
+          onFromEdge={updateNavState}
           breakpoints={{
             375: { slidesPerView: 2 },
             768: { slidesPerView: 3 },
@@ -148,7 +163,7 @@ const ProductSlider = () => {
                   </div>
                 </div>
 
-                <div className="red-button absolute bottom-0 left-0 w-full opacity-100 lg:opacity-0 transition-opacity duration-300 ease-in-out lg:group-hover:opacity-100">
+                <div className="red-button absolute bottom-0 left-0 w-full opacity-100 transition-opacity duration-300 ease-in-out lg:opacity-0 lg:group-hover:opacity-100">
                   <button
                     onClick={() => handleAddToCart(product)}
                     className="w-full cursor-pointer bg-[#d88453] py-3 text-sm font-semibold text-white transition-colors duration-300 ease-in-out hover:bg-[#633c02]"
@@ -162,38 +177,28 @@ const ProductSlider = () => {
         </Swiper>
       )}
       <div
-        className="swiper-button-prev"
+        className={`swiper-button-prev-product absolute left-6 top-[calc(50%+40px)] z-10 hidden h-[70px] w-[40px] -translate-y-1/2 cursor-pointer items-center justify-center text-white ${
+          canSlidePrev ? "group-hover:flex" : ""
+        }`}
         style={{
           backgroundColor: "rgba(78, 78, 78, 0.5)",
-          color: "#fff",
-          width: "40px",
-          height: "70px",
-          marginTop: "10px",
-          marginLeft: "10px",
-          display: showArrows ? "flex" : "none", // Hiển thị khi hover
-          justifyContent: "center", // Căn giữa theo chiều ngang
-          alignItems: "center", // Căn giữa theo chiều dọc
-          fontSize: "30px", // Kích thước chữ
         }}
         onClick={() => swiperRef.current?.swiper.slidePrev()}
-      ></div>
+      >
+        <FontAwesomeIcon icon={faChevronLeft} className="text-4xl" />
+      </div>
 
       <div
-        className="swiper-button-next"
+        className={`swiper-button-next-product absolute right-6 top-[calc(50%+40px)] z-10 hidden h-[70px] w-[40px] -translate-y-1/2 cursor-pointer items-center justify-center text-white ${
+          canSlideNext ? "group-hover:flex" : ""
+        }`}
         style={{
           backgroundColor: "rgba(78, 78, 78, 0.5)",
-          color: "#fff",
-          width: "40px",
-          height: "70px",
-          marginTop: "10px",
-          marginRight: "10px",
-          display: showArrows ? "flex" : "none", // Hiển thị khi hover
-          justifyContent: "center", // Căn giữa theo chiều ngang
-          alignItems: "center", // Căn giữa theo chiều dọc
-          fontSize: "30px", // Kích thước chữ
         }}
         onClick={() => swiperRef.current?.swiper.slideNext()}
-      ></div>
+      >
+        <FontAwesomeIcon icon={faChevronRight} className="text-4xl" />
+      </div>
 
       {selectedProduct && (
         <ModalProduct

@@ -38,12 +38,20 @@ const DeferredLayoutExtras = () => {
 
   useEffect(() => {
     const run = () => setReady(true);
-    if ("requestIdleCallback" in window) {
-      const idleId = window.requestIdleCallback(run, { timeout: 1500 });
-      return () => window.cancelIdleCallback(idleId);
-    }
-    const timeoutId = window.setTimeout(run, 1000);
-    return () => window.clearTimeout(timeoutId);
+    const onUserActive = () => run();
+    const events = ["scroll", "touchstart", "keydown", "mousemove"];
+
+    events.forEach((eventName) =>
+      window.addEventListener(eventName, onUserActive, { once: true, passive: true }),
+    );
+    const timeoutId = window.setTimeout(run, 2200);
+
+    return () => {
+      events.forEach((eventName) =>
+        window.removeEventListener(eventName, onUserActive),
+      );
+      window.clearTimeout(timeoutId);
+    };
   }, []);
 
   if (!ready) {

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -15,12 +15,14 @@ const BlogMain = () => {
   const [blogs, setBlogs] = useState([]); // State lưu trữ dữ liệu blogs
   const [hasAnimated, setHasAnimated] = useState(false);
   const [ref, inView] = useInView({ threshold: 0.2 });
+  const hasAnimatedRef = useRef(false);
 
   useEffect(() => {
-    if (inView && !hasAnimated) {
+    if (inView && !hasAnimatedRef.current) {
+      hasAnimatedRef.current = true;
       setHasAnimated(true);
     }
-  }, [inView, hasAnimated]);
+  }, [inView]);
   const [loading, setLoading] = useState(true);
 
   // Fetch blogs từ API
@@ -28,9 +30,7 @@ const BlogMain = () => {
     const fetchBlogs = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(
-          `${API_BASE_URL}/api/blogs/hotBlogs`,
-        ); // Đường dẫn đến API
+        const response = await axios.get(`${API_BASE_URL}/api/blogs/hotBlogs`); // Đường dẫn đến API
         if (response.data.success) {
           setBlogs(response.data.data); // Lưu data vào state
         }
