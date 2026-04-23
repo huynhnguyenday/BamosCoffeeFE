@@ -10,6 +10,7 @@ import {
   faChevronLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
+import { API_BASE_URL } from "../../config/api";
 import Loading from "./Loading"; // Import Loading component
 
 const BannerSwiper = () => {
@@ -23,7 +24,7 @@ const BannerSwiper = () => {
     const fetchBannerBlogs = async () => {
       try {
         const response = await axios.get(
-          "https://bamosbe-production.up.railway.app/api/blogs/bannerBlogs",
+          `${API_BASE_URL}/api/blogs/bannerBlogs`,
         );
         setBlogs(response.data.data); // Lưu dữ liệu vào state
       } catch (error) {

@@ -39,7 +39,7 @@ const CustomerProfile = () => {
       }
 
       const response = await axios.get(
-        `https://bamosbe-production.up.railway.app/api/accounts/${userId}`,
+        `/api/accounts/${userId}`,
       );
 
       if (response.data.success) {
@@ -73,7 +73,7 @@ const CustomerProfile = () => {
 
     try {
       const response = await axios.post(
-        "https://bamosbe-production.up.railway.app/api/auth/send-otp",
+        "/api/auth/send-otp",
         { email },
       );
 

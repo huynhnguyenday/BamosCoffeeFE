@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules"; // Import Navigation module
+import { API_BASE_URL } from "../config/api";
 import "swiper/css";
 import "swiper/css/navigation";
 import Loading from "../components/website/Loading";
@@ -27,7 +28,7 @@ const BlogMain = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          "https://bamosbe-production.up.railway.app/api/blogs/hotBlogs",
+          `${API_BASE_URL}/api/blogs/hotBlogs`,
         ); // Đường dẫn đến API
         if (response.data.success) {
           setBlogs(response.data.data); // Lưu data vào state

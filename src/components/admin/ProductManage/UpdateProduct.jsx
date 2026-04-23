@@ -24,7 +24,7 @@ const UpdateProduct = ({
     const fetchCategories = async () => {
       try {
         const response = await fetch(
-          "https://bamosbe-production.up.railway.app/api/categories",
+          "/api/categories",
         );
         const data = await response.json();
 
@@ -100,7 +100,7 @@ const UpdateProduct = ({
       }
 
       const response = await axios.put(
-        `https://bamosbe-production.up.railway.app/api/products/${updatedProduct._id}`,
+        `/api/products/${updatedProduct._id}`,
         formData,
         {
           headers: {

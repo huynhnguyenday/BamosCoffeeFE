@@ -5,6 +5,7 @@ import { useInView } from "react-intersection-observer";
 import { Link } from "react-router-dom";
 import ModalProduct from "./ModalProduct";
 import axios from "axios";
+import { API_BASE_URL } from "../config/api";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -34,7 +35,7 @@ const ProductSlider = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          "https://bamosbe-production.up.railway.app/api/mainPages",
+          `${API_BASE_URL}/api/mainPages`,
         );
         if (response.data.success) {
           setProducts(response.data.data);

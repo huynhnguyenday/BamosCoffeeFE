@@ -27,7 +27,7 @@ const ChangeInformation = ({ onClose, onUpdateSuccess }) => {
 
       try {
         const response = await axios.get(
-          `https://bamosbe-production.up.railway.app/api/accounts/${userId}`,
+          `/api/accounts/${userId}`,
         );
         if (response.data.success) {
           setEmail(response.data.data.gmail);
@@ -77,7 +77,7 @@ const ChangeInformation = ({ onClose, onUpdateSuccess }) => {
 
     try {
       const response = await axios.put(
-        `https://bamosbe-production.up.railway.app/api/accounts/${userId}`,
+        `/api/accounts/${userId}`,
         { gmail: email, numbers: phone },
       );
       if (response.data.success) {

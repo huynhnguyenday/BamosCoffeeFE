@@ -32,7 +32,7 @@ const ChangePasswordCs = ({ onClose, onUpdateSuccess }) => {
 
     try {
       const response = await axios.post(
-        "https://bamosbe-production.up.railway.app/api/auth/change-password",
+        "/api/auth/change-password",
         {
           oldPassword,
           newPassword,

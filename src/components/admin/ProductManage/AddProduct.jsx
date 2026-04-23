@@ -23,7 +23,7 @@ const AddProduct = ({ showModal, setShowModal }) => {
     const fetchCategories = async () => {
       try {
         const response = await axios.get(
-          "https://bamosbe-production.up.railway.app/api/categories",
+          "/api/categories",
         );
         const data = response.data;
 
@@ -79,7 +79,7 @@ const AddProduct = ({ showModal, setShowModal }) => {
 
     try {
       const response = await axios.post(
-        "https://bamosbe-production.up.railway.app/api/products",
+        "/api/products",
         formData,
         {
           headers: {

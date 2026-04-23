@@ -24,7 +24,7 @@ const Review = ({ productId }) => {
 
       try {
         const response = await axios.get(
-          `https://bamosbe-production.up.railway.app/api/reviews/${productId}`,
+          `/api/reviews/${productId}`,
         );
         if (response.data.success) {
           setReviews(response.data.data || []);
@@ -49,7 +49,7 @@ const Review = ({ productId }) => {
 
         if (accountId) {
           const response = await axios.get(
-            `https://bamosbe-production.up.railway.app/api/accounts/${accountId}`,
+            `/api/accounts/${accountId}`,
           );
           setAccountData(response.data.data);
 
@@ -118,7 +118,7 @@ const Review = ({ productId }) => {
 
     try {
       const response = await axios.post(
-        `https://bamosbe-production.up.railway.app/api/reviews/${productId}`,
+        `/api/reviews/${productId}`,
         newReview,
       );
       if (response.data.success) {
