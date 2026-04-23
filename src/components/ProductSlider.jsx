@@ -112,14 +112,14 @@ const ProductSlider = () => {
                   },
                 }}
               >
-                <div className="product-image">
+                <div className="product-image mx-auto flex h-[223px] w-full items-center justify-center">
                   <Link to={`/detailfood/${product._id}`}>
                     <img
                       src={resolveMediaUrl(product.image)}
                       alt={product.name}
                       loading="lazy"
                       decoding="async"
-                      className="mx-auto h-[223px] transform transition-transform duration-300 ease-in-out group-hover:scale-110"
+                      className="mx-auto h-full w-auto max-w-full object-contain transform transition-transform duration-300 ease-in-out group-hover:scale-110"
                     />
                   </Link>
                 </div>

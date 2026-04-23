@@ -4,7 +4,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useEffect, useState } from "react";
 import Navbar from "./components/website/Navbar";
 import Home from "./components/Home";
 
@@ -33,6 +33,30 @@ const AuthenticationCode = lazy(
 const ResetPassword = lazy(() => import("./components/website/ResetPassword"));
 
 const RouteFallback = () => <div className="h-[320px] w-full" />;
+const DeferredLayoutExtras = () => {
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    const run = () => setReady(true);
+    if ("requestIdleCallback" in window) {
+      const idleId = window.requestIdleCallback(run, { timeout: 1500 });
+      return () => window.cancelIdleCallback(idleId);
+    }
+    const timeoutId = window.setTimeout(run, 1000);
+    return () => window.clearTimeout(timeoutId);
+  }, []);
+
+  if (!ready) {
+    return null;
+  }
+
+  return (
+    <Suspense fallback={null}>
+      <Newsletter />
+      <Footer />
+    </Suspense>
+  );
+};
 
 // Layout chung có Navbar và Footer
 const MainLayout = ({ children }) => {
@@ -40,10 +64,7 @@ const MainLayout = ({ children }) => {
     <div className="app-container">
       <Navbar />
       <main id="main-content">{children}</main>
-      <Suspense fallback={null}>
-        <Newsletter />
-        <Footer />
-      </Suspense>
+      <DeferredLayoutExtras />
     </div>
   );
 };
@@ -58,10 +79,7 @@ const DetailLayout = ({ children }) => {
     <div className="detail-container">
       <Navbar />
       <main id="main-content">{children}</main>
-      <Suspense fallback={null}>
-        <Newsletter />
-        <Footer />
-      </Suspense>
+      <DeferredLayoutExtras />
     </div>
   );
 };
@@ -71,10 +89,7 @@ const DetailBlogLayout = ({ children }) => {
     <div className="detail-container">
       <Navbar />
       <main id="main-content">{children}</main>
-      <Suspense fallback={null}>
-        <Newsletter />
-        <Footer />
-      </Suspense>
+      <DeferredLayoutExtras />
     </div>
   );
 };
@@ -84,10 +99,7 @@ const PaymentLayout = ({ children }) => {
     <div className="payment-container">
       <Navbar />
       <main id="main-content">{children}</main>
-      <Suspense fallback={null}>
-        <Newsletter />
-        <Footer />
-      </Suspense>
+      <DeferredLayoutExtras />
     </div>
   );
 };

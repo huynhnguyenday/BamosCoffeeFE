@@ -1,20 +1,22 @@
-import { useState, useEffect } from "react";
+import { Suspense, lazy, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faShoppingCart,
   faBars,
 } from "@fortawesome/free-solid-svg-icons";
 import NavbarLink from "./NavbarLink";
-import SidebarCart from "./SidebarCart";
-import SidebarMenu from "./SidebarMenu";
-import SearchItem from "./SearchItem";
-import Login from "./Login";
+
+const SidebarCart = lazy(() => import("./SidebarCart"));
+const SidebarMenu = lazy(() => import("./SidebarMenu"));
+const SearchItem = lazy(() => import("./SearchItem"));
+const Login = lazy(() => import("./Login"));
 
 const Navbar = () => {
   const [cartItems, setCartItems] = useState([]);
   const [isCartVisible, setCartVisible] = useState(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [totalItems, setTotalItems] = useState(0);
+  const [showInteractiveTools, setShowInteractiveTools] = useState(false);
 
   const handleCartClick = () => {
     const tempCart = JSON.parse(localStorage.getItem("tempCart")) || [];
@@ -50,6 +52,16 @@ const Navbar = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const run = () => setShowInteractiveTools(true);
+    if ("requestIdleCallback" in window) {
+      const idleId = window.requestIdleCallback(run, { timeout: 1200 });
+      return () => window.cancelIdleCallback(idleId);
+    }
+    const timeoutId = window.setTimeout(run, 800);
+    return () => window.clearTimeout(timeoutId);
+  }, []);
+
   const totalPrice = cartItems.reduce((total, item) => total + item.price, 0);
 
   const toggleMobileMenu = () => {
@@ -66,8 +78,12 @@ const Navbar = () => {
         <NavbarLink />
       </div>
       <div className="flex items-center space-x-4">
-        <SearchItem />
-        <Login />
+        {showInteractiveTools ? (
+          <Suspense fallback={null}>
+            <SearchItem />
+            <Login />
+          </Suspense>
+        ) : null}
         <button
           type="button"
           aria-label="Mở giỏ hàng"
@@ -93,10 +109,14 @@ const Navbar = () => {
           </button>
         </div>
       </div>
-      <SidebarMenu
-        isMobileMenuOpen={isMobileMenuOpen}
-        toggleMobileMenu={toggleMobileMenu}
-      />
+      {isMobileMenuOpen && (
+        <Suspense fallback={null}>
+          <SidebarMenu
+            isMobileMenuOpen={isMobileMenuOpen}
+            toggleMobileMenu={toggleMobileMenu}
+          />
+        </Suspense>
+      )}
       {isCartVisible && (
         <div
           className="fixed left-0 top-0 z-50 h-full w-full bg-black bg-opacity-50"
@@ -104,12 +124,14 @@ const Navbar = () => {
         ></div>
       )}
       {isCartVisible && (
-        <SidebarCart
-          cartItems={cartItems}
-          removeItem={removeItem}
-          totalPrice={totalPrice}
-          handleCartClick={handleCartClick}
-        />
+        <Suspense fallback={null}>
+          <SidebarCart
+            cartItems={cartItems}
+            removeItem={removeItem}
+            totalPrice={totalPrice}
+            handleCartClick={handleCartClick}
+          />
+        </Suspense>
       )}
     </nav>
   );

@@ -17,9 +17,9 @@ const Benefit = () => {
             icon={faVanShuttle}
           />
           <div className="flex flex-col">
-            <h6 className="mb-1 font-oswald text-[20px] font-bold text-black">
+            <h3 className="mb-1 font-oswald text-[20px] font-bold text-black">
               Giao hàng miễn phí
-            </h6>
+            </h3>
             <p className="text-[15px] font-josefin text-black">Chỉ giao trong nội thành</p>
           </div>
         </div>
@@ -31,9 +31,9 @@ const Benefit = () => {
             icon={faMoneyBill}
           />
           <div className="flex flex-col">
-            <h6 className="mb-1 font-oswald text-[20px] font-bold text-black">
+            <h3 className="mb-1 font-oswald text-[20px] font-bold text-black">
               Thanh toán tiền mặt
-            </h6>
+            </h3>
             <p className="text-[15px] font-josefin text-black">Có cả thanh toán online</p>
           </div>
         </div>
@@ -45,9 +45,9 @@ const Benefit = () => {
             icon={faTicket}
           />
           <div className="flex flex-col">
-            <h6 className="mb-1 font-oswald text-[20px] font-bold text-black">
+            <h3 className="mb-1 font-oswald text-[20px] font-bold text-black">
               Khuyến mãi hấp dẫn
-            </h6>
+            </h3>
             <p className="text-[15px] font-josefin text-black">Ngày mới khuyến mãi mới</p>
           </div>
         </div>
@@ -59,9 +59,9 @@ const Benefit = () => {
             icon={faClock}
           />
           <div className="flex flex-col">
-            <h6 className="mb-1 font-oswald text-[20px] font-bold text-black">
+            <h3 className="mb-1 font-oswald text-[20px] font-bold text-black">
               Mở cửa 24/7
-            </h6>
+            </h3>
             <p className="text-[15px] font-josefin text-black">Mở cửa kể cả dịp lễ</p>
           </div>
         </div>

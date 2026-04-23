@@ -1,7 +1,3 @@
-import imgBackgroundPng from "../../assets/img_background.png";
-import imgBackground540 from "../../assets/img_background_540.webp";
-import imgBackground768 from "../../assets/img_background_768.webp";
-
 const MainSlider = () => {
   return (
     <div className="flex flex-col-reverse items-center justify-center gap-x-0 lg:flex-row">
@@ -23,11 +19,11 @@ const MainSlider = () => {
         <picture>
           <source
             type="image/webp"
-            srcSet={`${imgBackground540} 540w, ${imgBackground768} 768w`}
+            srcSet="/hero-bg-540.webp 540w, /hero-bg-768.webp 768w"
             sizes="(max-width: 640px) 92vw, (max-width: 1024px) 88vw, 708px"
           />
           <img
-            src={imgBackgroundPng}
+            src="/hero-bg-768.webp"
             alt="Background"
             width="768"
             height="576"
