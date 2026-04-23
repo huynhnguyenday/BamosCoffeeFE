@@ -21,12 +21,12 @@ const Home = () => {
 
   return (
     <div>
+      <Suspense fallback={<div className="h-[255px] w-full lg:h-[460px]" />}>
+        <BannerSwiper />
+      </Suspense>
       <MainSlider />
       {showDeferredSections ? (
         <>
-          <Suspense fallback={<div className="h-[255px] w-full lg:h-[460px]" />}>
-            <BannerSwiper />
-          </Suspense>
           <Suspense fallback={<div className="h-[350px] w-full" />}>
             <ProductSlider />
           </Suspense>

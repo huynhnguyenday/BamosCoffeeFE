@@ -20,16 +20,16 @@ const ProductSlider = () => {
   const [showArrows, setShowArrows] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  const [hasAnimated, setHasAnimated] = useState(false);
+  const hasAnimatedRef = useRef(false);
   const controls = useAnimation();
   const [ref, inView] = useInView({ threshold: 0.5 });
 
   useEffect(() => {
-    if (inView && !hasAnimated) {
+    if (inView && !hasAnimatedRef.current) {
       controls.start("visible");
-      setHasAnimated(true); // Đánh dấu là đã chạy
+      hasAnimatedRef.current = true; // Đánh dấu là đã chạy
     }
-  }, [controls, inView, hasAnimated]);
+  }, [controls, inView]);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -112,14 +112,14 @@ const ProductSlider = () => {
                   },
                 }}
               >
-                <div className="product-image mx-auto flex h-[223px] w-full items-center justify-center">
+                <div className="product-image">
                   <Link to={`/detailfood/${product._id}`}>
                     <img
                       src={resolveMediaUrl(product.image)}
                       alt={product.name}
                       loading="lazy"
                       decoding="async"
-                      className="mx-auto h-full w-auto max-w-full object-contain transform transition-transform duration-300 ease-in-out group-hover:scale-110"
+                      className="mx-auto h-[223px] transform transition-transform duration-300 ease-in-out group-hover:scale-110"
                     />
                   </Link>
                 </div>
