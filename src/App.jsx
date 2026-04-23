@@ -6,34 +6,44 @@ import {
 } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import Navbar from "./components/website/Navbar";
-import Footer from "./components/Footer";
 import Home from "./components/Home";
-import Menu from "./components/Menu";
-import Address from "./components/Address";
-import DetailFood from "./components/DetailFood";
-import Newsletter from "./components/Newsletter";
-import DetailBlog from "./components/DetailBlog";
-import News from "./components/News";
-import PaymentPage from "./components/PaymentPage";
-import Admin from "./components/admin/Admin";
-import OrderFail from "./components/website/OrderFail";
-import OrderSuccess from "./components/website/OrderSuccess";
-import ModalLogin from "./components/website/ModalLogin";
-import ModalForgotPassword from "./components/website/ModalForgotPassword";
-import CustomerProfile from "./components/website/ProfileCustomer/CustomerProfile";
-import AuthenticationCode from "./components/website/AuthenticationCode";
-import ResetPassword from "./components/website/ResetPassword";
 
 const BlogMain = lazy(() => import("./components/BlogMain"));
+const Footer = lazy(() => import("./components/Footer"));
+const Newsletter = lazy(() => import("./components/Newsletter"));
+const Menu = lazy(() => import("./components/Menu"));
+const Address = lazy(() => import("./components/Address"));
+const DetailFood = lazy(() => import("./components/DetailFood"));
+const DetailBlog = lazy(() => import("./components/DetailBlog"));
+const News = lazy(() => import("./components/News"));
+const PaymentPage = lazy(() => import("./components/PaymentPage"));
+const Admin = lazy(() => import("./components/admin/Admin"));
+const OrderFail = lazy(() => import("./components/website/OrderFail"));
+const OrderSuccess = lazy(() => import("./components/website/OrderSuccess"));
+const ModalLogin = lazy(() => import("./components/website/ModalLogin"));
+const ModalForgotPassword = lazy(
+  () => import("./components/website/ModalForgotPassword"),
+);
+const CustomerProfile = lazy(
+  () => import("./components/website/ProfileCustomer/CustomerProfile"),
+);
+const AuthenticationCode = lazy(
+  () => import("./components/website/AuthenticationCode"),
+);
+const ResetPassword = lazy(() => import("./components/website/ResetPassword"));
+
+const RouteFallback = () => <div className="h-[320px] w-full" />;
 
 // Layout chung có Navbar và Footer
 const MainLayout = ({ children }) => {
   return (
     <div className="app-container">
       <Navbar />
-      {children}
-      <Newsletter />
-      <Footer />
+      <main id="main-content">{children}</main>
+      <Suspense fallback={null}>
+        <Newsletter />
+        <Footer />
+      </Suspense>
     </div>
   );
 };
@@ -47,9 +57,11 @@ const DetailLayout = ({ children }) => {
   return (
     <div className="detail-container">
       <Navbar />
-      {children}
-      <Newsletter />
-      <Footer />
+      <main id="main-content">{children}</main>
+      <Suspense fallback={null}>
+        <Newsletter />
+        <Footer />
+      </Suspense>
     </div>
   );
 };
@@ -58,9 +70,11 @@ const DetailBlogLayout = ({ children }) => {
   return (
     <div className="detail-container">
       <Navbar />
-      {children}
-      <Newsletter />
-      <Footer />
+      <main id="main-content">{children}</main>
+      <Suspense fallback={null}>
+        <Newsletter />
+        <Footer />
+      </Suspense>
     </div>
   );
 };
@@ -69,9 +83,11 @@ const PaymentLayout = ({ children }) => {
   return (
     <div className="payment-container">
       <Navbar />
-      {children}
-      <Newsletter />
-      <Footer />
+      <main id="main-content">{children}</main>
+      <Suspense fallback={null}>
+        <Newsletter />
+        <Footer />
+      </Suspense>
     </div>
   );
 };
@@ -101,7 +117,9 @@ const App = () => {
           path="/menu"
           element={
             <MainLayout>
-              <Menu />
+              <Suspense fallback={<RouteFallback />}>
+                <Menu />
+              </Suspense>
             </MainLayout>
           }
         />
@@ -109,7 +127,9 @@ const App = () => {
           path="/news"
           element={
             <MainLayout>
-              <News />
+              <Suspense fallback={<RouteFallback />}>
+                <News />
+              </Suspense>
             </MainLayout>
           }
         />
@@ -117,7 +137,9 @@ const App = () => {
           path="/address"
           element={
             <MainLayout>
-              <Address />
+              <Suspense fallback={<RouteFallback />}>
+                <Address />
+              </Suspense>
             </MainLayout>
           }
         />
@@ -125,7 +147,9 @@ const App = () => {
           path="/detailfood/:id"
           element={
             <DetailLayout>
-              <DetailFood />
+              <Suspense fallback={<RouteFallback />}>
+                <DetailFood />
+              </Suspense>
             </DetailLayout>
           }
         />
@@ -143,7 +167,9 @@ const App = () => {
           path="/blogs/:id"
           element={
             <DetailBlogLayout>
-              <DetailBlog />
+              <Suspense fallback={<RouteFallback />}>
+                <DetailBlog />
+              </Suspense>
             </DetailBlogLayout>
           }
         />
@@ -151,7 +177,9 @@ const App = () => {
           path="/payment"
           element={
             <PaymentLayout>
-              <PaymentPage />
+              <Suspense fallback={<RouteFallback />}>
+                <PaymentPage />
+              </Suspense>
             </PaymentLayout>
           }
         />
@@ -159,7 +187,9 @@ const App = () => {
           path="/order-success"
           element={
             <MainLayout>
-              <OrderSuccess />
+              <Suspense fallback={<RouteFallback />}>
+                <OrderSuccess />
+              </Suspense>
             </MainLayout>
           }
         />
@@ -167,7 +197,9 @@ const App = () => {
           path="/order-fail"
           element={
             <MainLayout>
-              <OrderFail />
+              <Suspense fallback={<RouteFallback />}>
+                <OrderFail />
+              </Suspense>
             </MainLayout>
           }
         />
@@ -175,7 +207,9 @@ const App = () => {
           path="/login"
           element={
             <MainLayout>
-              <ModalLogin />
+              <Suspense fallback={<RouteFallback />}>
+                <ModalLogin />
+              </Suspense>
             </MainLayout>
           }
         />
@@ -183,7 +217,9 @@ const App = () => {
           path="/forgotpassword"
           element={
             <MainLayout>
-              <ModalForgotPassword />
+              <Suspense fallback={<RouteFallback />}>
+                <ModalForgotPassword />
+              </Suspense>
             </MainLayout>
           }
         />
@@ -191,7 +227,9 @@ const App = () => {
           path="/authenticationcode"
           element={
             <MainLayout>
-              <AuthenticationCode />
+              <Suspense fallback={<RouteFallback />}>
+                <AuthenticationCode />
+              </Suspense>
             </MainLayout>
           }
         />
@@ -199,7 +237,9 @@ const App = () => {
           path="/resetpassword"
           element={
             <MainLayout>
-              <ResetPassword />
+              <Suspense fallback={<RouteFallback />}>
+                <ResetPassword />
+              </Suspense>
             </MainLayout>
           }
         />
@@ -207,7 +247,9 @@ const App = () => {
           path="/customerprofile"
           element={
             <MainLayout>
-              <CustomerProfile />
+              <Suspense fallback={<RouteFallback />}>
+                <CustomerProfile />
+              </Suspense>
             </MainLayout>
           }
         />
@@ -217,7 +259,9 @@ const App = () => {
           path="/admin"
           element={
             <AdminLayout>
-              <Admin />
+              <Suspense fallback={<RouteFallback />}>
+                <Admin />
+              </Suspense>
             </AdminLayout>
           }
         />

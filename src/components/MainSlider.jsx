@@ -9,12 +9,12 @@ const MainSlider = () => {
         <h1 className="animated-title mb-3 text-4xl font-bold lg:text-5xl">
           ĐÔNG ĐẾN GIẢM 30%
         </h1>
-        <h4 className="mb-6 font-josefin text-2xl">
+        <h2 className="mb-6 font-josefin text-2xl">
           Áp dụng cho học sinh sinh viên
-        </h4>
+        </h2>
         <a
           href="/menu"
-          className="btn-buy rounded-lg bg-[#d88453] px-6 font-josefin py-3 text-2xl text-white hover:rounded-3xl hover:bg-[#633c02] "
+          className="btn-buy rounded-lg bg-[#8f451a] px-6 py-3 font-josefin text-2xl text-white hover:rounded-3xl hover:bg-[#633c02] "
         >
           Mua ngay
         </a>

@@ -100,10 +100,26 @@ const Footer = () => {
               </h2>
               <div className="mb-4 flex justify-center space-x-4 sm:justify-end">
                 {[
-                  { icon: faFacebook, link: "https://facebook.com" },
-                  { icon: faInstagram, link: "https://instagram.com" },
-                  { icon: faTwitter, link: "https://twitter.com" },
-                  { icon: faTiktok, link: "https://tiktok.com" },
+                  {
+                    icon: faFacebook,
+                    link: "https://facebook.com",
+                    label: "Theo dõi Bamos Coffee trên Facebook",
+                  },
+                  {
+                    icon: faInstagram,
+                    link: "https://instagram.com",
+                    label: "Theo dõi Bamos Coffee trên Instagram",
+                  },
+                  {
+                    icon: faTwitter,
+                    link: "https://twitter.com",
+                    label: "Theo dõi Bamos Coffee trên Twitter",
+                  },
+                  {
+                    icon: faTiktok,
+                    link: "https://tiktok.com",
+                    label: "Theo dõi Bamos Coffee trên TikTok",
+                  },
                 ].map((social, index) => (
                   <motion.div
                     key={index}
@@ -115,6 +131,8 @@ const Footer = () => {
                       href={social.link}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label={social.label}
+                      title={social.label}
                       className="flex h-[60px] w-[60px] items-center justify-center rounded-full bg-gray-100 text-2xl text-black transition-transform duration-300 ease-in-out hover:scale-110 hover:text-[#d88453]"
                     >
                       <FontAwesomeIcon icon={social.icon} />

@@ -53,7 +53,11 @@ const SearchItem = () => {
       onMouseEnter={handlePopoverEnter}
       onMouseLeave={handlePopoverLeave}
     >
-      <button className="cursor-pointer text-2xl text-[#333] transition-all duration-300">
+      <button
+        type="button"
+        aria-label="Mở tìm kiếm sản phẩm"
+        className="cursor-pointer text-2xl text-[#333] transition-all duration-300"
+      >
         <FontAwesomeIcon icon={faSearch} />
       </button>
 
@@ -67,7 +71,11 @@ const SearchItem = () => {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)} // Update searchTerm state on input change
             />
-            <button className="bg-black p-2 text-white transition-all duration-300 hover:bg-gray-300 hover:text-black">
+            <button
+              type="button"
+              aria-label="Tìm kiếm"
+              className="bg-black p-2 text-white transition-all duration-300 hover:bg-gray-300 hover:text-black"
+            >
               <FontAwesomeIcon icon={faSearch} />
             </button>
           </div>

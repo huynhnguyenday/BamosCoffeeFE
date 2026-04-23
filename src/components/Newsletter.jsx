@@ -44,7 +44,7 @@ const Newsletter = () => {
         <div className="flex flex-col md:flex-row">
           <div className="flex flex-1 items-center justify-start text-left">
             <div>
-              <h4 className="text-5xl font-bold text-[#d88453]">Đăng ký</h4>
+              <h2 className="text-5xl font-bold text-[#8f451a]">Đăng ký</h2>
               <p className="mb-4 mt-4 font-josefin text-base font-bold text-[#666]">
                 Đăng ký để nhận thông tin sớm nhất về chương trình giảm giá.
               </p>
@@ -67,7 +67,7 @@ const Newsletter = () => {
                   id="newsletter_submit"
                   type="submit"
                   disabled={loading}
-                  className={`mb-4 mt-4 h-[46px] w-[160px] cursor-pointer border-none bg-[#d88453] font-josefin font-bold text-white hover:bg-[#633c02] md:mb-0 md:mt-0 md:w-[160px] ${
+                  className={`mb-4 mt-4 h-[46px] w-[160px] cursor-pointer border-none bg-[#8f451a] font-josefin font-bold text-white hover:bg-[#633c02] md:mb-0 md:mt-0 md:w-[160px] ${
                     loading && "cursor-not-allowed opacity-50"
                   }`}
                 >

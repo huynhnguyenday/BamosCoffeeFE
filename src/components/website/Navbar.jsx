@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; // Để điều hướng
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faShoppingCart,
@@ -17,9 +16,9 @@ const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [totalItems, setTotalItems] = useState(0);
 
-  const navigate = useNavigate(); // Hook để điều hướng
-
   const handleCartClick = () => {
+    const tempCart = JSON.parse(localStorage.getItem("tempCart")) || [];
+    setTotalItems(tempCart.length);
     setCartVisible(!isCartVisible);
   };
 
@@ -27,19 +26,28 @@ const Navbar = () => {
     setCartItems(cartItems.filter((item) => item.id !== id));
   };
 
-  // Hàm cập nhật số lượng sản phẩm từ localStorage
-  const updateTotalItems = () => {
-    const tempCart = JSON.parse(localStorage.getItem("tempCart")) || [];
-    setTotalItems(tempCart.length); // Đếm số lượng sản phẩm (sử dụng length)
-  };
-
-  // Sử dụng useEffect để cập nhật mỗi giây
+  // Đồng bộ số lượng giỏ hàng từ localStorage theo sự kiện thay vì poll liên tục.
   useEffect(() => {
-    const interval = setInterval(() => {
-      updateTotalItems();
-    }, 1000); // Cập nhật mỗi 1 giây
+    const syncCartCount = () => {
+      const tempCart = JSON.parse(localStorage.getItem("tempCart")) || [];
+      setTotalItems(tempCart.length);
+    };
+    const handleVisibility = () => {
+      if (!document.hidden) {
+        syncCartCount();
+      }
+    };
 
-    return () => clearInterval(interval); // Dọn dẹp khi component unmount
+    syncCartCount();
+    window.addEventListener("storage", syncCartCount);
+    window.addEventListener("focus", syncCartCount);
+    document.addEventListener("visibilitychange", handleVisibility);
+
+    return () => {
+      window.removeEventListener("storage", syncCartCount);
+      window.removeEventListener("focus", syncCartCount);
+      document.removeEventListener("visibilitychange", handleVisibility);
+    };
   }, []);
 
   const totalPrice = cartItems.reduce((total, item) => total + item.price, 0);
@@ -60,8 +68,9 @@ const Navbar = () => {
       <div className="flex items-center space-x-4">
         <SearchItem />
         <Login />
-        <a
-          href="#cart"
+        <button
+          type="button"
+          aria-label="Mở giỏ hàng"
           className="relative cursor-pointer text-2xl text-[#333] transition-all duration-300 hover:text-[#d88453]"
           onClick={handleCartClick}
         >
@@ -71,11 +80,15 @@ const Navbar = () => {
               {totalItems}
             </div>
           )}
-        </a>
+        </button>
       </div>
       <div className="item flex">
         <div className="flex items-end pl-3 text-[27px] sm:hidden">
-          <button onClick={toggleMobileMenu}>
+          <button
+            type="button"
+            aria-label="Mở menu điều hướng"
+            onClick={toggleMobileMenu}
+          >
             <FontAwesomeIcon icon={faBars} />
           </button>
         </div>

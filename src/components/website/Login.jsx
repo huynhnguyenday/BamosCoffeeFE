@@ -74,6 +74,8 @@ const Login = () => {
       onMouseLeave={() => setDropdownOpen(false)}
     >
       <button
+        type="button"
+        aria-label="Tài khoản người dùng"
         className="cursor-pointer text-2xl text-[#333] transition-all duration-300 hover:text-[#d88453] lg:px-4"
         onClick={handleUserIconClick} // Thêm chức năng điều hướng khi nhấn vào faUser
       >
@@ -83,12 +85,14 @@ const Login = () => {
         isDropdownOpen && ( // Chỉ hiển thị dropdown nếu có token
           <div className="dropdown absolute -left-12 w-[180px] rounded-lg border-2 border-gray-300 bg-white shadow-md">
             <button
+              type="button"
               className="w-full border-b-2 border-gray-300 px-4 py-3 text-center font-josefin text-sm font-bold hover:rounded-t-lg hover:bg-black hover:text-white"
               onClick={handleLoginClick}
             >
               Thông tin tài khoản
             </button>
             <button
+              type="button"
               className="w-full px-4 py-3 text-center font-josefin text-sm font-bold hover:rounded-b-lg hover:bg-black hover:text-white"
               onClick={handleLogoutClick}
             >
