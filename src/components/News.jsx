@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Loading from "../components/website/Loading";
+import { resolveMediaUrl } from "../utils/mediaUrl";
 
 const formatDate = (dateString) => {
   const date = new Date(dateString);
@@ -81,7 +82,7 @@ const News = () => {
                   </div>
 
                   <img
-                    src={blog.image}
+                    src={resolveMediaUrl(blog.image)}
                     alt={blog.title}
                     className="h-full w-full object-cover"
                   />

@@ -5,6 +5,7 @@ import { useInView } from "react-intersection-observer";
 import { Link } from "react-router-dom";
 import ModalProduct from "./ModalProduct";
 import axios from "axios";
+import { resolveMediaUrl } from "../utils/mediaUrl";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -112,7 +113,7 @@ const RelatedProduct = ({ productId }) => {
                 <div className="product-image">
                   <Link to={`/detailfood/${product._id}`}>
                     <img
-                      src={product.image}
+                      src={resolveMediaUrl(product.image)}
                       alt={product.name}
                       className="mx-auto h-[223px] transform transition-transform duration-300 ease-in-out group-hover:scale-110"
                     />

@@ -5,6 +5,7 @@ import "./DetailBlog.css"; // Vẫn sử dụng CSS riêng cho styling
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faNewspaper } from "@fortawesome/free-solid-svg-icons";
 import Loading from "../components/website/Loading";
+import { resolveMediaUrl } from "../utils/mediaUrl";
 
 const DetailBlog = () => {
   const { id } = useParams(); // Lấy id từ URL
@@ -82,7 +83,7 @@ const DetailBlog = () => {
           <p className="author-date">
             Ngày: {new Date(blog.updatedAt).toLocaleDateString("vi-VN")}
           </p>
-          <img src={blog.image} alt={blog.title} />
+          <img src={resolveMediaUrl(blog.image)} alt={blog.title} />
           <div
             className="content-blog"
             dangerouslySetInnerHTML={{ __html: blog.content }}

@@ -11,6 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { API_BASE_URL } from "../../config/api";
+import { resolveMediaUrl } from "../../utils/mediaUrl";
 import Loading from "./Loading"; // Import Loading component
 
 const BannerSwiper = () => {
@@ -81,7 +82,7 @@ const BannerSwiper = () => {
                 onClick={() => navigate(`/blogs/${blog._id}`)}
               >
                 <img
-                  src={blog.image}
+                  src={resolveMediaUrl(blog.image)}
                   alt={blog.title}
                   className="h-full w-full object-cover lg:h-[460px] lg:object-contain"
                 />

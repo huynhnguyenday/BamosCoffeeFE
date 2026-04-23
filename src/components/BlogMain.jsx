@@ -6,6 +6,7 @@ import { useInView } from "react-intersection-observer";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules"; // Import Navigation module
 import { API_BASE_URL } from "../config/api";
+import { resolveMediaUrl } from "../utils/mediaUrl";
 import "swiper/css";
 import "swiper/css/navigation";
 import Loading from "../components/website/Loading";
@@ -95,7 +96,7 @@ const BlogMain = () => {
                         {/* The container for the image */}
                         <div className="relative h-[255px] w-full overflow-hidden shadow-lg">
                           <img
-                            src={blog.image}
+                            src={resolveMediaUrl(blog.image)}
                             alt={blog.title}
                             className="h-full w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
                           />

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import ModalProduct from "./ModalProduct";
 import axios from "axios";
 import { API_BASE_URL } from "../config/api";
+import { resolveMediaUrl } from "../utils/mediaUrl";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -114,7 +115,7 @@ const ProductSlider = () => {
                 <div className="product-image">
                   <Link to={`/detailfood/${product._id}`}>
                     <img
-                      src={product.image}
+                      src={resolveMediaUrl(product.image)}
                       alt={product.name}
                       className="mx-auto h-[223px] transform transition-transform duration-300 ease-in-out group-hover:scale-110"
                     />

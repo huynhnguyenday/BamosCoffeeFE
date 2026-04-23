@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import Loading from "../components/website/Loading";
 import Review from "../components/website/Review";
 import RelatedProduct from "./RelatedProduct";
+import { resolveMediaUrl } from "../utils/mediaUrl";
 
 const DetailFood = () => {
   const [quantity, setQuantity] = useState(1);
@@ -120,7 +121,7 @@ const DetailFood = () => {
       tempCart.push({
         productId: product._id,
         name: product.name,
-        img: product.image,
+        img: resolveMediaUrl(product.image),
         price: product.sell_price,
         quantity,
       });
@@ -139,7 +140,7 @@ const DetailFood = () => {
         {/* Left Section */}
         <div className="w-full scale-90 cursor-pointer overflow-hidden rounded-lg md:w-[300px]">
           <img
-            src={product.image}
+            src={resolveMediaUrl(product.image)}
             alt={product.name}
             className="h-full w-full object-cover"
           />
