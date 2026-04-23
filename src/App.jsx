@@ -4,6 +4,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
+import { Suspense, lazy } from "react";
 import Navbar from "./components/website/Navbar";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
@@ -12,7 +13,6 @@ import Address from "./components/Address";
 import DetailFood from "./components/DetailFood";
 import Newsletter from "./components/Newsletter";
 import DetailBlog from "./components/DetailBlog";
-import BlogMain from "./components/BlogMain";
 import News from "./components/News";
 import PaymentPage from "./components/PaymentPage";
 import Admin from "./components/admin/Admin";
@@ -23,6 +23,8 @@ import ModalForgotPassword from "./components/website/ModalForgotPassword";
 import CustomerProfile from "./components/website/ProfileCustomer/CustomerProfile";
 import AuthenticationCode from "./components/website/AuthenticationCode";
 import ResetPassword from "./components/website/ResetPassword";
+
+const BlogMain = lazy(() => import("./components/BlogMain"));
 
 // Layout chung có Navbar và Footer
 const MainLayout = ({ children }) => {
@@ -131,7 +133,9 @@ const App = () => {
           path="/blogs"
           element={
             <MainLayout>
-              <BlogMain />
+              <Suspense fallback={<div className="h-[400px] w-full" />}>
+                <BlogMain />
+              </Suspense>
             </MainLayout>
           }
         />

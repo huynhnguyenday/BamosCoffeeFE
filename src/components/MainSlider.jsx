@@ -1,9 +1,11 @@
-import imgBackground from "../../assets/img_background.png"; // Đường dẫn tới ảnh
+import imgBackgroundPng from "../../assets/img_background.png";
+import imgBackground540 from "../../assets/img_background_540.webp";
+import imgBackground768 from "../../assets/img_background_768.webp";
 
 const MainSlider = () => {
   return (
     <div className="flex flex-col-reverse items-center justify-center gap-x-0 lg:flex-row">
-      <div className="content mb-8 mt-8 px-4 text-[#633c02] lg:ml-32 lg:mt-8">
+      <div className="content mb-8 mt-8 min-h-[210px] px-4 text-[#633c02] lg:ml-32 lg:mt-8 lg:min-h-0">
         <h1 className="animated-title mb-3 text-4xl font-bold lg:text-5xl">
           ĐÔNG ĐẾN GIẢM 30%
         </h1>
@@ -17,12 +19,25 @@ const MainSlider = () => {
           Mua ngay
         </a>
       </div>
-      <div className="image-container mt-4 lg:mt-0">
-        <img
-          src={imgBackground}
-          alt="Background"
-          className="background-image h-auto w-full"
-        />
+      <div className="image-container mt-4 w-full max-w-[721px] lg:mt-0">
+        <picture>
+          <source
+            type="image/webp"
+            srcSet={`${imgBackground540} 540w, ${imgBackground768} 768w`}
+            sizes="(max-width: 640px) 92vw, (max-width: 1024px) 88vw, 708px"
+          />
+          <img
+            src={imgBackgroundPng}
+            alt="Background"
+            width="768"
+            height="576"
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
+            sizes="(max-width: 640px) 92vw, (max-width: 1024px) 88vw, 708px"
+            className="background-image h-auto w-full"
+          />
+        </picture>
       </div>
     </div>
   );

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bamoscoffee.vercel.app/sitemap.xml

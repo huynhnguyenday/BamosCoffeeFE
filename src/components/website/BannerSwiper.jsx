@@ -84,6 +84,8 @@ const BannerSwiper = () => {
                 <img
                   src={resolveMediaUrl(blog.image)}
                   alt={blog.title}
+                  loading="lazy"
+                  decoding="async"
                   className="h-full w-full object-cover lg:h-[460px] lg:object-contain"
                 />
               </div>

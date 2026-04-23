@@ -1,6 +1,8 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./setupAxios";
+import "@fontsource/josefin-sans/400.css";
+import "@fontsource/josefin-sans/600.css";
 import "./index.css";
 import App from "./App.jsx";
 import { ToastContainer } from "react-toastify";

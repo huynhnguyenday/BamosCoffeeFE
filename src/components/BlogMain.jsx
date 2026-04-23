@@ -98,6 +98,8 @@ const BlogMain = () => {
                           <img
                             src={resolveMediaUrl(blog.image)}
                             alt={blog.title}
+                            loading="lazy"
+                            decoding="async"
                             className="h-full w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
                           />
                         </div>

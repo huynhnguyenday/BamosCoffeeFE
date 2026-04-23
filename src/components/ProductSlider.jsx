@@ -117,6 +117,8 @@ const ProductSlider = () => {
                     <img
                       src={resolveMediaUrl(product.image)}
                       alt={product.name}
+                      loading="lazy"
+                      decoding="async"
                       className="mx-auto h-[223px] transform transition-transform duration-300 ease-in-out group-hover:scale-110"
                     />
                   </Link>
