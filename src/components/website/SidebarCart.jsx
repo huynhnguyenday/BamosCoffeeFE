@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { toast } from "react-toastify";
+import { resolveMediaUrl } from "../../utils/mediaUrl";
 
 const SidebarCart = ({ handleCartClick }) => {
   const [cartItems, setCartItems] = useState([]);
@@ -10,7 +11,12 @@ const SidebarCart = ({ handleCartClick }) => {
 
   useEffect(() => {
     const tempCart = JSON.parse(localStorage.getItem("tempCart")) || [];
-    setCartItems(tempCart);
+    setCartItems(
+      tempCart.map((item) => ({
+        ...item,
+        img: resolveMediaUrl(item.img),
+      })),
+    );
   }, []);
 
   // Cập nhật tổng giá trị giỏ hàng khi cartItems thay đổi
@@ -145,7 +151,7 @@ const SidebarCart = ({ handleCartClick }) => {
               className="relative mb-4 flex ml-1 h-[120px] w-[328px] items-start rounded-lg border border-[#ddd] p-2"
             >
               <img
-                src={item.img}
+                src={resolveMediaUrl(item.img)}
                 alt={item.name}
                 className="mt-2 mr-4 h-[85px] w-[50px] object-cover"
               />

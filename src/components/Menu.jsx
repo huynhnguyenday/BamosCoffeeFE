@@ -5,6 +5,7 @@ import axios from "axios";
 import Loading from "../components/website/Loading";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSliders } from "@fortawesome/free-solid-svg-icons";
+import { resolveMediaUrl } from "../utils/mediaUrl";
 
 const Menu = () => {
   const [activeCategory, setActiveCategory] = useState("TẤT CẢ");
@@ -166,7 +167,7 @@ const Menu = () => {
                 <div>
                   <Link to={`/detailfood/${item._id}`}>
                     <img
-                      src={item.image}
+                      src={resolveMediaUrl(item.image)}
                       alt={item.name}
                       className="mx-auto h-[216px] transition-transform ease-linear group-hover:scale-[1.18]"
                     />

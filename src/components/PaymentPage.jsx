@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import { decodeJWT } from "./utils/jwtUtils";
 import Cookies from "js-cookie";
 import Loading from "../components/website/LoadingWhite";
+import { resolveMediaUrl } from "../utils/mediaUrl";
 
 const PaymentPage = () => {
   const location = useLocation();
@@ -86,7 +87,12 @@ const PaymentPage = () => {
     const intervalId = setInterval(() => {
       const savedCart = localStorage.getItem("tempCart");
       if (savedCart) {
-        setCartItems(JSON.parse(savedCart));
+        setCartItems(
+          JSON.parse(savedCart).map((item) => ({
+            ...item,
+            img: resolveMediaUrl(item.img),
+          })),
+        );
       }
     }, 2000); // Cập nhật mỗi 2 giây
 
@@ -487,7 +493,7 @@ const PaymentPage = () => {
               >
                 <div className="w-3/12 flex-shrink-0">
                   <img
-                    src={item.img}
+                    src={resolveMediaUrl(item.img)}
                     alt={item.name}
                     className="h-20% w-20% rounded-lg object-cover"
                   />

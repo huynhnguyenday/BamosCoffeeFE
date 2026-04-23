@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark, faBasketShopping } from "@fortawesome/free-solid-svg-icons";
 import { toast } from "react-toastify";
+import { resolveMediaUrl } from "../utils/mediaUrl";
 
 const ModalProduct = ({
   selectedProduct,
@@ -44,7 +45,7 @@ const ModalProduct = ({
       tempCart.push({
         productId: selectedProduct._id,
         name: selectedProduct.name,
-        img: selectedProduct.image,
+        img: resolveMediaUrl(selectedProduct.image),
         price: selectedProduct.sell_price,
         quantity,
       });
@@ -70,7 +71,7 @@ const ModalProduct = ({
         {/* Left Section */}
         <div className="flex w-full items-center justify-center md:w-1/2 lg:p-5">
           <img
-            src={selectedProduct.image}
+            src={resolveMediaUrl(selectedProduct.image)}
             alt={selectedProduct.name}
             className="max-h-[400px] max-w-full object-contain"
           />
